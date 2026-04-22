@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Ossama Masoud - Director & COO | SIS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="antialiased bg-white">
+
+    <!-- Top Navigation Bar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-[60] bg-gradient-to-b from-black/80 via-black/40 to-transparent pt-6 pb-12 transition-all duration-300">
+        <div class="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center w-full">
+
+            <a href="../index.html" class="flex items-center group cursor-pointer">
+                <!-- Local Image Logo -->
+                <img id="school-logo" src="../assets/images/school_logo_white.svg" alt="SIS Logo"
+                    class="w-[85px] h-[85px] lg:w-[100px] lg:h-[100px] transform group-hover:scale-105 transition-all duration-300 object-contain">
+
+                <!-- Text -->
+                <div
+                    class="flex flex-col text-white font-bold text-[12px] sm:text-[14px] leading-[1.15] tracking-[0.05em] ml-4">
+                    <span>SUCCESS</span>
+                    <span>INTERNATIONAL</span>
+                    <span>SCHOOL</span>
+                </div>
+            </a>
+
+            <!-- Right Side: Navigation Links & Menu -->
+            <div class="flex items-center gap-6 lg:gap-10">
+
+                <!-- Translate Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Translate
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Box -->
+                    <div
+                        class="absolute top-full right-0 mt-4 w-40 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="#"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Arabic</a>
+                            </li>
+                            <li><a href="#"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">French</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Quick Links
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Box -->
+                    <div
+                        class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="../admission.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Admissions</a>
+                            </li>
+                            <li><a href="../careers.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Careers</a>
+                            </li>
+                            <li><a href="../gallery.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Branches Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Branches
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Box -->
+                    <div
+                        class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="../branches/al-mansoura.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
+                                    Mansoura Branch</a>
+                            </li>
+                            <li><a href="../branches/al-munawwara.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
+                                    Munawwara Branch</a>
+                            </li>
+                            <li><a href="../branches/ar-rabia.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Ar
+                                    Rabia Branch</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Search Button -->
+                <button onclick="toggleSearch()"
+                    class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                    Search
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                        </path>
+                    </svg>
+                </button>
+
+                <!-- Custom Menu Button -->
+                <div id="menuBtn"
+                    class="flex flex-col justify-between items-stretch cursor-pointer group h-[22px] ml-2 w-max relative z-[60]">
+                    <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-1">
+                    </div>
+                    <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]"
+                        id="menu-text">MENU</span>
+                    <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 bg-[#f8fafc] overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="reveal">
+                    <h1 class="text-[#0c2b53] text-5xl md:text-6xl font-black mb-4 leading-tight">Mr. Ossama<br>Masoud
+                    </h1>
+                    <p class="text-[#a6192e] text-xl font-bold uppercase tracking-[0.2em] mb-8">Director & COO</p>
+                    <div class="w-20 h-1.5 bg-[#a6192e] mb-10"></div>
+                    <blockquote
+                        class="text-2xl font-['Merriweather'] italic text-gray-700 leading-relaxed border-l-4 border-[#f7b926] pl-6">
+                        "Fostering a vibrant, inclusive learning community where every child is encouraged to grow with
+                        confidence, curiosity, and character."
+                    </blockquote>
+                </div>
+                <div class="relative reveal" style="transition-delay: 200ms;">
+                    <div class="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white aspect-[4/5]">
+                        <img src="../assets/images/leadership/Mr_Osama_Massood.jpg" alt="Mr. Ossama Masoud"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#f7b926] rounded-full -z-10 hidden lg:block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Content -->
+    <section class="py-20 bg-white relative z-10">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <div class="prose prose-lg max-w-none text-gray-700 leading-[1.8] reveal">
+                <h2 class="text-3xl font-bold text-[#0c2b53] mb-8">Operational Excellence</h2>
+                <p class="mb-6">
+                    Mr. Ossama Masoud, the Director and Chief Operating Officer of Success International School, has
+                    been instrumental in the school's operational success since its founding in September 2014. His
+                    focus is on creating a seamless and efficient educational environment that serves both students and
+                    parents.
+                </p>
+                <p class="mb-6">
+                    His leadership philosophy centers on transparency, accountability, and continuous improvement. He
+                    oversees the day-to-day operations across all SIS campuses, ensuring that the school's resources are
+                    optimized to provide the best possible learning experience.
+                </p>
+                <p class="mb-6">
+                    Mr. Masoud is particularly dedicated to maintaining an inclusive community where students from
+                    diverse backgrounds (over 60 nationalities) feel at home. He believes that a respectful and
+                    supportive environment is the foundation for all academic achievement.
+                </p>
+                <p class="mb-6">
+                    Under his supervision, SIS has implemented advanced management systems, improved transport services,
+                    and enhanced campus security. He remains committed to the 2014 mission of providing high-quality,
+                    English-medium education that is accessible and affordable for families in Riyadh.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Transition -->
+    <div class="wave-container">
+        <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path class="wave-path-1"
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
+                fill="#0c2b53" opacity="0.4"></path>
+            <path class="wave-path-2"
+                d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
+                fill="#0c2b53" opacity="0.6"></path>
+            <path class="wave-path-3"
+                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
+                fill="#0c2b53"></path>
+        </svg>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#0c2b53] text-white pt-20 pb-10 relative overflow-hidden">
+        <!-- Floating Watermark -->
+        <div class="absolute right-[-5%] bottom-[-5%] opacity-[0.04] pointer-events-none">
+            <img src="../assets/images/school_logo_white.svg" alt="" class="w-[500px] h-auto">
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <!-- Footer Header / Logo Area -->
+            <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-white/10 pb-12">
+                <div class="flex items-center gap-4">
+                    <img src="../assets/images/school_logo_white.svg" alt="SIS Logo"
+                        class="w-16 h-16 lg:w-20 lg:h-20 object-contain">
+                    <div
+                        class="flex flex-col font-bold text-[14px] lg:text-[16px] leading-[1.1] tracking-wider uppercase">
+                        <span>Success</span>
+                        <span>International</span>
+                        <span>School</span>
+                    </div>
+                </div>
+                <div class="hidden md:block h-12 w-[1px] bg-white/20 mx-4"></div>
+                <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
+                    Inspiring global thinkers and engaged leaders for over 10 years, fostering excellence in education
+                    across our branches.
+                </p>
+            </div>
+
+            <!-- Main Footer Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-20">
+
+                <!-- Column 1: Admissions -->
+                <div class="flex flex-col items-start px-12 md:px-0">
+                    <h4 class="text-2xl font-bold mb-6 text-white">Admissions</h4>
+                    <p class="text-white/80 text-sm leading-relaxed mb-8 max-w-xs">
+                        Join our community of learners. Click below to start your journey with Success International
+                        School.
+                    </p>
+                    <a href="../admission.html"
+                        class="inline-block bg-[#a6192e] text-white font-bold py-4 px-10 rounded hover:bg-[#8d1527] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[#a6192e]/40 mb-10 w-full md:w-auto text-center">
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Column 2: Get In Touch -->
+                <div class="flex flex-col items-start px-12 md:px-0">
+                    <h4 class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
+                    <p class="text-[15px] font-bold text-white mb-2 uppercase">Success International School</p>
+                    <p class="text-white/70 text-sm mb-6">+966 12 213 1900<br>info@success.edu.sa</p>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div class="flex flex-col items-start px-12 md:px-0">
+                    <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="flex flex-col gap-y-3">
+                        <li><a href="../about-us.html" class="text-white/70 hover:text-white transition-all">About Us</a>
+                        </li>
+                        <li><a href="../admission.html"
+                                class="text-white/70 hover:text-white transition-all">Admissions</a></li>
+                        <li><a href="../gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
+                        </li>
+                        <li><a href="../careers.html" class="text-white/70 hover:text-white transition-all">Careers</a>
+                        </li>
+                        <li><a href="../policies.html" class="text-white/70 hover:text-white transition-all">Policies</a>
+                        </li>
+                        <li><a href="../contact-us.html" class="text-white/70 hover:text-white transition-all">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
+                &copy; 2026 Success International School. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Enquire Now Button -->
+    <a href="../contact-us.html"
+        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[55] flex items-center gap-3 bg-[#a6192e] text-white px-5 py-3 md:px-7 md:py-4 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:bg-[#851425] hover:-translate-y-1.5 transition-all duration-300 group border-2 border-white/20 backdrop-blur-sm pulse-white">
+        <div
+            class="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+            <span class="material-symbols-outlined text-xl md:text-2xl">edit_note</span>
+        </div>
+        <span class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase">Enquire Now</span>
+    </a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+    <!-- Interactive Scripts -->
+    <script src="../assets/js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Success International School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="antialiased bg-[#f9f7f1]">
+
+    <!-- Top Navigation Bar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-[60] bg-[#0c2b53] py-4 transition-all duration-300">
+        <div class="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center w-full">
+
+            <a href="index.html" class="flex items-center group cursor-pointer">
+                <img id="school-logo" src="assets/images/school_logo_white.svg" alt="SIS Logo"
+                    class="w-[60px] h-[60px] lg:w-[65px] lg:h-[65px] transform group-hover:scale-105 transition-all duration-300 object-contain">
+                <div class="flex flex-col text-white font-bold text-[12px] sm:text-[14px] leading-[1.15] tracking-[0.05em] ml-4">
+                    <span>SUCCESS</span>
+                    <span>INTERNATIONAL</span>
+                    <span>SCHOOL</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-6 lg:gap-10">
+                <button onclick="toggleSearch()"
+                    class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                    Search
+                    <span class="material-symbols-outlined text-[20px]">search</span>
+                </button>
+
+                <div id="menuBtn" class="flex flex-col justify-between items-stretch cursor-pointer group h-[22px] ml-2 w-max relative z-[60]">
+                    <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-1"></div>
+                    <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]" id="menu-text">MENU</span>
+                    <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-2"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Results Header -->
+    <section class="pt-40 pb-16 bg-[#0c2b53] text-white">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Search Results</h1>
+            <p class="text-xl text-white/70" id="search-query-text">Showing results for "..."</p>
+        </div>
+    </section>
+
+    <!-- Results List -->
+    <main class="py-20">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div id="results-container" class="space-y-12">
+                <!-- Results will be injected here -->
+                <div class="flex flex-col items-center justify-center py-20 text-center">
+                    <span class="material-symbols-outlined text-8xl text-gray-200 mb-6">search_off</span>
+                    <h2 class="text-3xl font-bold text-[#0c2b53] mb-4">No results found</h2>
+                    <p class="text-gray-500 max-w-md mx-auto mb-8">We couldn't find anything matching your search. Try checking your spelling or using different keywords.</p>
+                    <button onclick="toggleSearch()" class="bg-[#a6192e] text-white px-8 py-3 rounded-full font-bold hover:bg-[#851425] transition-all">Try Another Search</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0c2b53] text-white py-12">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+            <p class="text-white/40">&copy; 2026 Success International School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Overlays -->
+    <div id="searchOverlay" class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
+        <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
+            <input type="text" placeholder="Search the website..." class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
+            <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
+                <span class="material-symbols-outlined text-[32px]">search</span>
+            </button>
+        </div>
+        <button onclick="toggleSearch()" class="absolute top-8 right-8 text-gray-400 hover:text-[#cc2128]">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+    </div>
+
+    <div id="fullMenu" class="fixed inset-0 bg-[#0c2b53] z-[50] flex items-center justify-center transition-all duration-500 opacity-0 invisible translate-x-full">
+        <div class="flex flex-col gap-6 text-center text-white text-3xl font-bold">
+            <a href="index.html" class="hover:text-[#f7b926] transition-colors">Home</a>
+            <a href="about-us.html" class="hover:text-[#f7b926] transition-colors">About Us</a>
+            <a href="admission.html" class="hover:text-[#f7b926] transition-colors">Admissions</a>
+            <a href="contact-us.html" class="hover:text-[#f7b926] transition-colors">Contact Us</a>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            const resultsContainer = document.getElementById('results-container');
+            const queryDisplay = document.getElementById('search-query-text');
+
+            if (!query || query.trim() === "") {
+                queryDisplay.textContent = "Please enter a search term.";
+                return;
+            }
+
+            queryDisplay.textContent = `Showing results for "${query}"`;
+
+            // Comprehensive Search Index - Heavily Expanded
+            const searchIndex = [
+                {
+                    title: "Home - Success International School",
+                    url: "index.html",
+                    desc: "Inspiring global thinkers and engaged leaders. Providing quality K-12 education from Primary to Secondary school levels.",
+                    keywords: "home sis welcome school education international vision excellence leadership primary secondary high school elementary foundation k-12 k12 kindergarten"
+                },
+                {
+                    title: "About Us - Our Legacy & Values",
+                    url: "about-us.html",
+                    desc: "Founded in 2014, SIS is committed to developing minds, bodies, and characters. Accredited British curriculum school.",
+                    keywords: "about history legacy vision mission values responsibility compassion humility foundation 2014 message principal accreditation moe ministry of education cambridge british curriculum igcse"
+                },
+                {
+                    title: "Admissions - Registration, Fees & Grades",
+                    url: "admission.html",
+                    desc: "Join our community. Information on LKG, UKG, and Grades 1-12. Details on entrance tests, assessments, and school fees.",
+                    keywords: "admission apply join registration enroll requirements fees tuition cost money price academic scholarship application lkg ukg kg kindergarten nursery pre-school entrance test placement assessment interview exam test document passport id"
+                },
+                {
+                    title: "Careers - Faculty & Staff Opportunities",
+                    url: "careers.html",
+                    desc: "Explore job opportunities. We are hiring passionate teachers for Primary, Secondary, and specialized subjects.",
+                    keywords: "careers jobs work faculty teacher staff hiring vacancies employment application teaching positions vacancy secondary teacher primary teacher"
+                },
+                {
+                    title: "Contact Us - Visit Our Campuses",
+                    url: "contact-us.html",
+                    desc: "Find us in Riyadh. Contact details for all branches, maps, and school office hours.",
+                    keywords: "contact location address phone email reach support map office number riyadh branches campus call visit"
+                },
+                {
+                    title: "Gallery - Campus Events & Life",
+                    url: "gallery.html",
+                    desc: "Photos of graduation, sports day, and student achievements. Experience school life at SIS.",
+                    keywords: "gallery photos campus events students pictures activities sports school life graduation assembly celebration competition"
+                },
+                {
+                    title: "Al Mansoura Branch",
+                    url: "branches/al-mansoura.html",
+                    desc: "Our Al Mansoura campus offering Primary and Secondary education in a state-of-the-art facility.",
+                    keywords: "mansoura branch location campus riyadh schools primary secondary"
+                },
+                {
+                    title: "Al Munawwara Branch",
+                    url: "branches/al-munawwara.html",
+                    desc: "Dedicated to excellence in education. Explore the Al Munawwara campus and programs.",
+                    keywords: "munawwara branch location campus riyadh schools primary secondary"
+                },
+                {
+                    title: "Ar Rabia Branch",
+                    url: "branches/ar-rabia.html",
+                    desc: "Providing a nurturing environment for students in the Ar Rabia community.",
+                    keywords: "rabia branch location campus riyadh schools primary secondary"
+                },
+                {
+                    title: "School Policies & Uniform Guidelines",
+                    url: "policies.html",
+                    desc: "Essential information on student conduct, uniform, attendance, and safety protocols.",
+                    keywords: "policies rules guidelines procedures safety conduct behavior uniform attendance absence late dress code transport bus cafeteria"
+                },
+                {
+                    title: "IMS Policy - Digital Security",
+                    url: "ims-policy.html",
+                    desc: "Information Management System and data privacy policies for students and parents.",
+                    keywords: "ims policy data information security privacy technology digital portal login"
+                }
+            ];
+
+            const searchTerm = query.toLowerCase().trim();
+            const searchWords = searchTerm.split(/\s+/); // Split by whitespace to search individual words
+
+            const filteredResults = searchIndex.filter(item => {
+                const searchableText = `${item.title} ${item.desc} ${item.keywords}`.toLowerCase();
+                // Match if the full phrase is found OR if all individual words are found
+                return searchableText.includes(searchTerm) || 
+                       searchWords.every(word => searchableText.includes(word));
+            });
+
+            if (filteredResults.length > 0) {
+                resultsContainer.innerHTML = filteredResults.map(result => `
+                    <div class="bg-white p-8 rounded-[30px] shadow-sm hover:shadow-xl transition-all border border-gray-100 group reveal">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div class="flex-grow">
+                                <h2 class="text-2xl font-bold text-[#0c2b53] mb-2 group-hover:text-[#a6192e] transition-colors">${result.title}</h2>
+                                <p class="text-gray-600 mb-4 line-clamp-2">${result.desc}</p>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <span class="material-symbols-outlined text-[16px] mr-1">link</span>
+                                    <span>${result.url}</span>
+                                </div>
+                            </div>
+                            <a href="${result.url}" class="bg-[#0c2b53] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#a6192e] transition-all whitespace-nowrap">
+                                View Page
+                            </a>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Trigger reveal animation for results
+                setTimeout(() => {
+                    document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+                }, 100);
+            }
+        });
+    </script>
+</body>
+
+</html>

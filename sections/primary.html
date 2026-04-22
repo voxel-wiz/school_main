@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary Section (Grades 1-5) | SIS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="antialiased bg-white">
+
+    <!-- Top Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 w-full z-[60] bg-[#0c2b53] py-4 transition-all duration-300">
+        <div class="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center w-full">
+            <a href="../index.html" class="flex items-center group cursor-pointer">
+                <img id="school-logo" src="../assets/images/school_logo_white.svg" alt="SIS Logo" class="w-[60px] h-[60px] lg:w-[65px] lg:h-[65px] transform group-hover:scale-105 transition-all duration-300 object-contain">
+                <div class="flex flex-col text-white font-bold text-[12px] sm:text-[14px] leading-[1.15] tracking-[0.05em] ml-4">
+                    <span>SUCCESS</span>
+                    <span>INTERNATIONAL</span>
+                    <span>SCHOOL</span>
+                </div>
+            </a>
+            <a href="../index.html" class="text-white font-bold text-sm hover:text-[#f7b926] transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 bg-[#C45A17] overflow-hidden text-white">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="reveal">
+                    <h1 class="text-5xl md:text-6xl font-black mb-4 leading-tight">Primary Section<br>(Grades 1-5)</h1>
+                    <p class="text-white/80 text-xl font-bold uppercase tracking-[0.2em] mb-8">Elementary Years</p>
+                    <div class="w-20 h-1.5 bg-white mb-10"></div>
+                    <p class="text-xl leading-relaxed">
+                        Focusing on building strong academic foundations while nurturing creativity, curiosity, and moral values.
+                    </p>
+                </div>
+                <div class="relative reveal" style="transition-delay: 200ms;">
+                    <div class="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/20 aspect-video">
+                        <img src="../assets/images/general/primary.png" alt="Primary Students" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-[1000px] mx-auto px-6 prose prose-lg text-gray-700 reveal">
+            <h2 class="text-[#0c2b53] text-3xl font-bold mb-8">A Journey of Discovery</h2>
+            <p class="mb-6">
+                Our Primary Section aims for holistic growth in academic, moral, and social dimensions. Through engaging lessons, activities, and individual attention, students develop critical thinking, communication, and problem-solving skills.
+            </p>
+            <h3 class="text-2xl font-bold text-[#C45A17] mt-12 mb-6">Core Subjects</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 not-prose mb-12">
+                <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl">
+                    <div class="w-12 h-12 bg-[#C45A17] rounded-full flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">language</span>
+                    </div>
+                    <span class="font-bold text-[#0c2b53]">Language Arts</span>
+                </div>
+                <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl">
+                    <div class="w-12 h-12 bg-[#C45A17] rounded-full flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">calculate</span>
+                    </div>
+                    <span class="font-bold text-[#0c2b53]">Mathematics</span>
+                </div>
+                <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl">
+                    <div class="w-12 h-12 bg-[#C45A17] rounded-full flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">science</span>
+                    </div>
+                    <span class="font-bold text-[#0c2b53]">Science & Tech</span>
+                </div>
+                <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl">
+                    <div class="w-12 h-12 bg-[#C45A17] rounded-full flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">palette</span>
+                    </div>
+                    <span class="font-bold text-[#0c2b53]">Arts & Culture</span>
+                </div>
+            </div>
+            <p class="mb-6">
+                Arabic and Islamic Studies are integrated from the start, ensuring that our students remain connected to their cultural and spiritual heritage while receiving a world-class international education.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0c2b53] text-white pt-20 pb-10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
+            <p class="text-white/40 text-[13px]">
+                &copy; 2026 Success International School. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success International School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            /* Updated to white for the new section */
+        }
+
+        /* Menu Button Animation States */
+        .menu-open #menu-line-1 {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-open #menu-line-2 {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .menu-open #menu-text {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Prevent scrolling when overlays are active */
+        body.overflow-hidden {
+            overflow: hidden;
+        }
+
+        /* Custom text clipping for long menu options if necessary */
+        .nav-dropdown-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background-color: #0c2b53;
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-dropdown-item:hover::before {
+            width: 100%;
+        }
+
+        /* Hide scrollbar for nav tabs on mobile */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Marquee Animation Styles */
+        @keyframes loop-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-loop-scroll {
+            animation: loop-scroll 25s linear infinite;
+        }
+
+        .pause-on-hover:hover .animate-loop-scroll {
+            animation-play-state: paused;
+        }
+
+        .mask-image-fade {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .font-serif-heading {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Standardized Watermark System */
+        .logo-watermark {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* --- Wave Animation --- */
+        .wave-container {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            line-height: 0;
+            background: white;
+        }
+
+        .wave-svg {
+            position: relative;
+            display: block;
+            width: 200%;
+            height: 100px;
+            animation: wave-move 15s linear infinite;
+        }
+
+        @keyframes wave-move {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Top Navigation Bar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-[60] bg-gradient-to-b from-black/80 via-black/40 to-transparent pt-6 pb-12 transition-all duration-300">
+        <div class="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center w-full">
+
+            <a href="index.html" class="flex items-center group cursor-pointer">
+                <!-- Local Image Logo -->
+                <img id="school-logo" src="assets/images/school_logo_white.svg" alt="SIS Logo"
+                    class="w-[85px] h-[85px] lg:w-[100px] lg:h-[100px] transform group-hover:scale-105 transition-all duration-300 object-contain">
+
+                <!-- Text -->
+                <div
+                    class="flex flex-col text-white font-bold text-[12px] sm:text-[14px] leading-[1.15] tracking-[0.05em] ml-4">
+                    <span>SUCCESS</span>
+                    <span>INTERNATIONAL</span>
+                    <span>SCHOOL</span>
+                </div>
+            </a>
+
+            <!-- Right Side: Navigation Links & Menu -->
+            <div class="flex items-center gap-6 lg:gap-10">
+
+                <!-- Translate Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Translate
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Box -->
+                    <div
+                        class="absolute top-full right-0 mt-4 w-40 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="#"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Arabic</a>
+                            </li>
+                            <li><a href="#"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">French</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Quick Links
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Box -->
+                    <div
+                        class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="admission.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Admissions</a>
+                            </li>
+                            <li><a href="careers.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Careers</a>
+                            </li>
+                            <li><a href="gallery.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Branches Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Branches
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Box -->
+                    <div
+                        class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="branches/al-mansoura.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
+                                    Mansoura Branch</a>
+                            </li>
+                            <li><a href="branches/al-munawwara.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
+                                    Munawwara Branch</a>
+                            </li>
+                            <li><a href="branches/ar-rabia.html"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Ar
+                                    Rabia Branch</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Search Button -->
+                <button onclick="toggleSearch()"
+                    class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                    Search
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                        </path>
+                    </svg>
+                </button>
+
+                <!-- Custom Menu Button -->
+                <div id="menuBtn"
+                    class="flex flex-col justify-between items-stretch cursor-pointer group h-[22px] ml-2 w-max relative z-[60]">
+                    <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-1">
+                    </div>
+                    <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]"
+                        id="menu-text">MENU</span>
+                    <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen overflow-hidden">
+        <!-- Background Video (Autoplay, Loop, Muted for compatibility) -->
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+            <!-- Using a local video file -->
+            <source src="assets/video/hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Subtle dark overlay to ensure text readability -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black/20 z-10 pointer-events-none"></div>
+
+        <!-- Hero Content Overlay -->
+        <div class="relative z-20 w-full h-full flex flex-col justify-center items-center px-6">
+            <div class="flex flex-col items-start pt-20"> <!-- pt-20 added to offset the visual weight of the navbar -->
+                <!-- Subheading text -->
+                <h2
+                    class="text-white font-bold text-2xl md:text-3xl lg:text-[40px] leading-[1.2] drop-shadow-md mb-2 md:mb-0 ml-1 md:ml-3">
+                    Global thinkers.<br>
+                    Engaged leaders.<br>
+                    Investing in knowledge.
+                </h2>
+                <!-- Massive Main Title -->
+                <h1
+                    class="text-white font-black text-[100px] sm:text-[140px] md:text-[200px] lg:text-[280px] leading-[0.8] tracking-tighter drop-shadow-lg">
+                    SIS
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Accreditations & Partnerships -->
+    <section class="py-16 bg-white border-b border-gray-100 overflow-hidden relative z-20">
+        <div class="mx-auto text-center reveal">
+            <p class="text-[16px] font-bold text-[#2A75D3] mb-8">(Examination center for external candidates)</p>
+
+            <div class="flex overflow-hidden mask-image-fade max-w-[1920px] mx-auto pause-on-hover">
+                <!-- Track 1 -->
+                <div
+                    class="flex items-center space-x-12 md:space-x-16 pr-12 md:pr-16 animate-loop-scroll shrink-0 pt-4 pb-4">
+
+                    <!-- Cognia -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <div
+                            class="w-20 h-20 rounded-full bg-[#E84E43] flex flex-col justify-center items-center text-white p-2 text-center border-4 border-white shadow-sm ring-1 ring-gray-200 hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                            <span class="text-[8px] tracking-widest leading-none mb-1 opacity-90">ACCREDITED</span>
+                            <span class="font-bold text-lg leading-none tracking-wide">cognia</span>
+                            <span class="text-[4px] mt-1 opacity-70">NCA CASI | NWAC | SACS CASI</span>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(USA)</span>
+                    </div>
+
+                    <!-- CollegeBoard -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <img src="../assets/college_board.jpeg" alt="CollegeBoard"
+                            class="h-10 object-contain max-w-[200px] hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-1 block text-center">(USA)</span>
+                    </div>
+
+                    <!-- Pearson Edexcel -->
+                    <div class="flex flex-col items-center gap-2 mb-1 shrink-0">
+                        <div
+                            class="flex items-center gap-2.5 hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                            <div
+                                class="relative w-[3.2rem] h-[3.2rem] bg-[#0080a4] rounded-full flex items-center justify-center shadow-sm">
+                                <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M11 18.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5-4h-3v-3.5C9.5 8 11 6 14 6c3 0 4.5 2 4.5 4.5S17 14 14 14.5v-1.5c1.5-.5 2.5-1.5 2.5-3 0-1.5-1-2.5-2.5-2.5S11.5 8.5 11.5 10v4.5z" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col text-left justify-center">
+                                <span class="text-[24px] text-[#242424] leading-[1.1]"
+                                    style="font-family: 'Times New Roman', Times, serif;">Pearson</span>
+                                <span
+                                    class="text-[24px] font-bold text-[#242424] leading-[1.1] font-sans tracking-tight">Edexcel</span>
+                            </div>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(United
+                            Kingdom)</span>
+                    </div>
+
+                    <!-- Cambridge -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <img src="../assets/cambridge.png" alt="Cambridge"
+                            class="h-20 object-contain hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(United
+                            Kingdom)</span>
+                    </div>
+
+                    <!-- Oxford AQA -->
+                    <div class="flex flex-col items-center gap-2 mb-2 shrink-0">
+                        <div
+                            class="flex flex-col hover:-translate-y-2 transition-transform duration-300 items-center mx-auto">
+                            <div class="flex items-center gap-3">
+                                <div class="font-serif-heading font-bold text-2xl text-[#333333]">OXFORD</div>
+                                <div
+                                    class="bg-[#333333] text-white font-serif-heading font-bold text-xl px-2 py-1 leading-none tracking-widest">
+                                    AQA</div>
+                            </div>
+                            <div class="text-[9px] font-semibold text-[#333333] tracking-[0.2em] mt-1 uppercase">
+                                International Qualifications</div>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(United
+                            Kingdom)</span>
+                    </div>
+
+                    <!-- ISO 21001:2018 -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <div
+                            class="flex flex-col hover:-translate-y-2 transition-transform duration-300 items-center mx-auto">
+                            <div class="font-black text-sm mb-1 text-[#333333]">21001:2018</div>
+                            <div
+                                class="w-16 h-16 bg-[#E31837] flex flex-col items-center justify-center p-2 text-white border-2 border-[#E31837]">
+                                <div class="w-full h-1/2 flex justify-center items-end border-b border-white pb-0.5">
+                                    <span class="material-symbols-outlined text-[20px] leading-none">public</span>
+                                </div>
+                                <div class="w-full h-1/2 flex justify-center items-start pt-0.5">
+                                    <span class="font-black text-xl leading-none">ISO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(Geneva
+                            Switzerland)</span>
+                    </div>
+                </div>
+
+                <!-- Track 2 (Duplicate for seamless loop) -->
+                <div class="flex items-center space-x-12 md:space-x-16 pr-12 md:pr-16 animate-loop-scroll shrink-0 pt-4 pb-4"
+                    aria-hidden="true">
+
+                    <!-- Cognia -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <div
+                            class="w-20 h-20 rounded-full bg-[#E84E43] flex flex-col justify-center items-center text-white p-2 text-center border-4 border-white shadow-sm ring-1 ring-gray-200 hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                            <span class="text-[8px] tracking-widest leading-none mb-1 opacity-90">ACCREDITED</span>
+                            <span class="font-bold text-lg leading-none tracking-wide">cognia</span>
+                            <span class="text-[4px] mt-1 opacity-70">NCA CASI | NWAC | SACS CASI</span>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(USA)</span>
+                    </div>
+
+                    <!-- CollegeBoard -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <img src="../assets/college_board.jpeg" alt="CollegeBoard"
+                            class="h-10 object-contain max-w-[200px] hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-1 block text-center">(USA)</span>
+                    </div>
+
+                    <!-- Pearson Edexcel -->
+                    <div class="flex flex-col items-center gap-2 mb-1 shrink-0">
+                        <div
+                            class="flex items-center gap-2.5 hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                            <div
+                                class="relative w-[3.2rem] h-[3.2rem] bg-[#0080a4] rounded-full flex items-center justify-center shadow-sm">
+                                <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M11 18.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5-4h-3v-3.5C9.5 8 11 6 14 6c3 0 4.5 2 4.5 4.5S17 14 14 14.5v-1.5c1.5-.5 2.5-1.5 2.5-3 0-1.5-1-2.5-2.5-2.5S11.5 8.5 11.5 10v4.5z" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col text-left justify-center">
+                                <span class="text-[24px] text-[#242424] leading-[1.1]"
+                                    style="font-family: 'Times New Roman', Times, serif;">Pearson</span>
+                                <span
+                                    class="text-[24px] font-bold text-[#242424] leading-[1.1] font-sans tracking-tight">Edexcel</span>
+                            </div>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(United
+                            Kingdom)</span>
+                    </div>
+
+                    <!-- Cambridge -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <img src="../assets/cambridge.png" alt="Cambridge"
+                            class="h-20 object-contain hover:-translate-y-2 transition-transform duration-300 mx-auto">
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(United
+                            Kingdom)</span>
+                    </div>
+
+                    <!-- Oxford AQA -->
+                    <div class="flex flex-col items-center gap-2 mb-2 shrink-0">
+                        <div
+                            class="flex flex-col hover:-translate-y-2 transition-transform duration-300 items-center mx-auto">
+                            <div class="flex items-center gap-3">
+                                <div class="font-serif-heading font-bold text-2xl text-[#333333]">OXFORD</div>
+                                <div
+                                    class="bg-[#333333] text-white font-serif-heading font-bold text-xl px-2 py-1 leading-none tracking-widest">
+                                    AQA</div>
+                            </div>
+                            <div class="text-[9px] font-semibold text-[#333333] tracking-[0.2em] mt-1 uppercase">
+                                International Qualifications</div>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(United
+                            Kingdom)</span>
+                    </div>
+
+                    <!-- ISO 21001:2018 -->
+                    <div class="flex flex-col items-center gap-2 shrink-0">
+                        <div
+                            class="flex flex-col hover:-translate-y-2 transition-transform duration-300 items-center mx-auto">
+                            <div class="font-black text-sm mb-1 text-[#333333]">21001:2018</div>
+                            <div
+                                class="w-16 h-16 bg-[#E31837] flex flex-col items-center justify-center p-2 text-white border-2 border-[#E31837]">
+                                <div class="w-full h-1/2 flex justify-center items-end border-b border-white pb-0.5">
+                                    <span class="material-symbols-outlined text-[20px] leading-none">public</span>
+                                </div>
+                                <div class="w-full h-1/2 flex justify-center items-start pt-0.5">
+                                    <span class="font-black text-xl leading-none">ISO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[13px] font-bold text-[#2A75D3] mt-2 block text-center">(Geneva
+                            Switzerland)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="relative w-full bg-white pt-24 pb-16 md:pt-36 md:pb-28 overflow-hidden z-10">
+        <!-- Logo Watermark Background -->
+        <div class="logo-watermark right-[-5%] top-[-5%] opacity-[0.035]">
+            <img src="assets/images/school_logo_black.svg" alt="" class="w-full h-full">
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+                <!-- Left Side: Text Content -->
+                <div class="flex flex-col items-start pr-0 md:pr-10">
+                    <h3 class="text-[#004b87] text-2xl md:text-3xl font-medium mb-1">Welcome to</h3>
+                    <h2 class="text-[#004b87] text-6xl md:text-7xl lg:text-[90px] font-bold leading-none mb-8">SIS</h2>
+
+                    <p class="text-gray-700 text-lg md:text-[20px] leading-relaxed mb-10 max-w-lg">
+                        Success International School (SIS) is an outstanding international school with a
+                        global vision. Our innovative teaching and robust curriculum have been preparing students for
+                        the global stage for over 10 years.
+                    </p>
+
+                    <a href="#"
+                        class="bg-[#a6192e] text-white font-semibold text-[15px] px-8 py-3.5 rounded hover:bg-[#851425] transition-colors shadow-md">
+                        Learn more
+                    </a>
+                </div>
+
+                <!-- Right Side: Circular Image and Play Button -->
+                <div class="relative w-full max-w-[450px] lg:max-w-[550px] mx-auto mt-10 md:mt-0 aspect-square">
+                    <!-- Circular Masked Image -->
+                    <div
+                        class="w-full h-full rounded-full overflow-hidden shadow-2xl relative z-10 border-8 border-white">
+                        <img src="assets/images/general/welcome_girl.png" alt="SIS Students"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Interactive Play Button Overlay -->
+                    <button onclick="openVideo()"
+                        class="absolute bottom-[5%] left-0 md:-left-[5%] w-24 h-24 md:w-32 md:h-32 bg-[#49075e] rounded-full flex items-center justify-center text-white z-20 shadow-[0_10px_30px_rgba(73,7,94,0.5)] hover:scale-105 hover:bg-[#5e0a7a] transition-all duration-300 group cursor-pointer focus:outline-none">
+                        <svg class="w-8 h-8 md:w-12 md:h-12 ml-1 md:ml-2 group-hover:scale-110 transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Wave Transition -->
+
+    <!-- Wavy Teal Transition -->
+    <div class="wave-container">
+        <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
+                fill="#00797b" opacity="0.4"></path>
+            <path
+                d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
+                fill="#00797b" opacity="0.6"></path>
+            <path
+                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
+                fill="#00797b"></path>
+        </svg>
+    </div>
+    <div class="w-full h-16 md:h-24 bg-[#00797b]"></div>
+
+    <!-- New Chapter Section -->
+    <section class="w-full bg-[#d20c36] py-20 md:py-28 relative z-20">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+
+                <!-- Left Side: Local Image Slider Mockup -->
+                <div class="w-full lg:w-7/12 relative group">
+                    <!-- Local Image -->
+                    <img src="assets/images/al-mansoura/Al-Mansoura Branch.jpg" alt="King's College New Campus"
+                        class="w-full h-auto rounded-[24px] shadow-2xl object-cover">
+
+                    <!-- Left Arrow Indicator -->
+                    <div
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 border-[1.5px] border-white/70 rounded-full flex items-center justify-center text-white/70 hover:border-white hover:text-white cursor-pointer transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <!-- Right Arrow Indicator -->
+                    <div
+                        class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 border-[1.5px] border-white/70 rounded-full flex items-center justify-center text-white/70 hover:border-white hover:text-white cursor-pointer transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Right Side: Text Content -->
+                <div class="w-full lg:w-5/12 flex flex-col items-start text-white">
+                    <h2
+                        class="font-['Merriweather',_serif] text-3xl md:text-4xl lg:text-[40px] font-bold mb-6 leading-[1.3]">
+                        A New Chapter for Success International School
+                    </h2>
+                    <p class="font-['Montserrat',_sans-serif] text-[15px] md:text-[17px] leading-[1.6] mb-8 text-white">
+                        In the coming years, Success International School will expand its reach and facilities, marking
+                        an
+                        important moment in the continued growth of our school and community.
+                    </p>
+                    <a href="#"
+                        class="inline-block border-2 border-white text-white font-bold text-[15px] px-8 py-3 hover:bg-white hover:text-[#d20c36] transition-colors duration-300">
+                        Explore More
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our School Auto-Carousel Section -->
+    <section id="ourSchoolSection"
+        class="relative w-full overflow-hidden pt-20 transition-colors duration-[800ms] ease-in-out bg-[#9B2039] flex flex-col shadow-[inset_0_20px_20px_-20px_rgba(0,0,0,0.5)]">
+
+        <!-- Subtle Background Decorative Circles -->
+        <div class="absolute -left-[10%] top-[10%] w-[600px] h-[600px] border-[50px] border-white/5 rounded-full pointer-events-none transition-transform duration-1000"
+            id="osBgCircle1"></div>
+        <div class="absolute left-[20%] top-[20%] w-[800px] h-[800px] border-[60px] border-white/5 rounded-full pointer-events-none transition-transform duration-1000 delay-100"
+            id="osBgCircle2"></div>
+
+        <!-- Section Header -->
+        <div class="text-center text-white mb-10 relative z-20">
+            <p class="text-lg md:text-2xl font-medium mb-1">With you every step</p>
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tight">Our School</h2>
+        </div>
+
+        <!-- Main Cross-Fading Content Grid -->
+        <div
+            class="max-w-[1500px] mx-auto w-full px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between flex-grow relative z-20 min-h-[500px]">
+
+            <!-- Left: Transparent Cutout Image -->
+            <div class="w-full lg:w-1/3 flex justify-center lg:justify-start relative">
+                <img id="osImage" src="early-years.png" alt="Student"
+                    class="h-[350px] md:h-[450px] lg:h-[550px] object-contain drop-shadow-2xl transition-opacity duration-500 ease-in-out">
+            </div>
+
+            <!-- Middle: Dynamic Text Info -->
+            <div id="osTextContainer"
+                class="w-full lg:w-1/3 text-white flex flex-col items-start px-4 lg:px-8 py-10 lg:py-0 transition-opacity duration-500 ease-in-out">
+                <p id="osAge" class="text-xl md:text-2xl font-bold mb-2">Age 2 - 5</p>
+                <h3 id="osTitle" class="text-5xl lg:text-[56px] font-bold mb-2 leading-none">Early Years</h3>
+                <p id="osSubtitle" class="text-xl md:text-2xl font-bold mb-6">Nursery - FS2</p>
+                <p id="osDesc" class="text-sm md:text-base leading-relaxed mb-8 max-w-md">
+                    The Early Years are an important time of growth, learning and development. We take a holistic
+                    approach to Early Years education, nurturing language and communication skills alongside emotional
+                    and social awareness, health and physical development. It means each child starts school in a way
+                    exactly right for them.
+                </p>
+                <button
+                    class="bg-white text-black font-bold px-8 py-3.5 rounded hover:bg-gray-200 transition-colors shadow-md text-sm">
+                    Learn more
+                </button>
+            </div>
+
+            <!-- Right: Giant Blue Stats Circle -->
+            <div class="w-full lg:w-1/3 flex justify-center relative pb-10 lg:pb-0 transition-opacity duration-500 ease-in-out"
+                id="osStatsContainer">
+                <div
+                    class="w-[300px] h-[300px] lg:w-[350px] lg:h-[350px] bg-[#004b87] rounded-full flex flex-col items-center justify-center text-white text-center shadow-2xl p-6 relative">
+                    <div id="osStatsInner" class="flex flex-col items-center justify-center w-full">
+                        <p class="text-lg md:text-xl font-medium">SIS has in excess of</p>
+                        <p class="text-6xl lg:text-[80px] font-bold leading-none my-2">1300</p>
+                        <p class="text-lg md:text-xl font-medium">students</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Responsive Navigation Bar -->
+        <div class="w-full flex justify-center mt-auto relative z-30 pt-10">
+            <div class="max-w-[1400px] w-full px-4 lg:px-12 flex flex-col md:flex-row items-end gap-4 md:gap-6">
+
+                <!-- Dynamic Tabs Container -->
+                <div id="navTabsContainer" class="flex w-full md:w-auto overflow-x-auto no-scrollbar gap-1 md:gap-2">
+                    <!-- Tabs will be injected via JS here -->
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="flex gap-2 pb-4 self-center md:self-end">
+                    <button onclick="prevSchoolSlide()"
+                        class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg"
+                        id="osPrevBtn">
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <button onclick="nextSchoolSlide()"
+                        class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg"
+                        id="osNextBtn">
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Without Limits Section -->
+    <section class="w-full bg-[#f9f7f1] py-20 md:py-32 relative z-20">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                <!-- Text Content -->
+                <div class="flex flex-col">
+                    <h2
+                        class="font-['Merriweather',_serif] text-3xl md:text-4xl lg:text-[40px] font-bold mb-8 text-[#33424d]">
+                        Learning Without Limits
+                    </h2>
+
+                    <p
+                        class="font-['Montserrat',_sans-serif] text-gray-700 text-[15px] md:text-base leading-[1.8] mb-6">
+                        Learning at Success International School is designed to spark curiosity and build resilience.
+                        Our children are
+                        encouraged to ask questions, embrace challenge, and think independently, developing a love of
+                        learning that lasts a lifetime.
+                    </p>
+
+                    <p
+                        class="font-['Montserrat',_sans-serif] text-gray-700 text-[15px] md:text-base leading-[1.8] mb-6">
+                        Through a broad and balanced programme — from mathematics and science to languages, the arts,
+                        and physical education — pupils gain both knowledge and confidence.
+                    </p>
+
+                    <p class="font-['Montserrat',_sans-serif] text-gray-700 text-[15px] md:text-base leading-[1.8]">
+                        We believe success lies not only in academic results, but in the courage to try, the creativity
+                        to innovate, and the character to make a difference. At Success International School, our
+                        students are prepared to
+                        thrive in tomorrow's world.
+                    </p>
+                </div>
+
+                <!-- Local Image -->
+                <div class="w-full relative">
+                    <img src="assets/images/general/Inspiring.jpg" alt="Teacher interacting with students"
+                        class="w-full h-auto rounded-[24px] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.15)] object-cover">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Your Journey Section -->
+    <section class="w-full bg-[#B6996D] py-20 md:py-28 relative z-20">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+                <!-- Left Side: Large Heading -->
+                <div>
+                    <h2
+                        class="font-['Merriweather',_serif] text-4xl md:text-5xl lg:text-[64px] font-bold text-white leading-[1.15]">
+                        Start Your Child's<br>Success International School<br>Journey
+                    </h2>
+                </div>
+
+                <!-- Right Side: Description and Button -->
+                <div class="flex flex-col items-start lg:pl-10">
+                    <p
+                        class="font-['Montserrat',_sans-serif] text-white text-[16px] md:text-[18px] leading-[1.6] mb-8 max-w-[500px]">
+                        Join Success International School and give your child the opportunity to flourish at one of the
+                        Kingdom's leading international schools - rooted in excellence and alive with innovation.
+                    </p>
+                    <a href="#"
+                        class="inline-block border-[1.5px] border-white text-white font-bold text-[15px] px-10 py-3.5 hover:bg-white hover:text-[#B6996D] transition-colors duration-300">
+                        Apply Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal Overlay -->
+    <div id="videoModal"
+        class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-500">
+        <!-- Close Button -->
+        <button onclick="closeVideo()"
+            class="absolute top-6 right-6 md:top-10 md:right-10 text-white/70 hover:text-white transition-colors z-50">
+            <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <!-- Video Container -->
+        <div class="w-full max-w-6xl px-4 md:px-8 aspect-video relative">
+            <video id="promoVideo" controls class="w-full h-full object-contain rounded-lg shadow-2xl bg-black">
+                <!-- Replace with your local promotional video -->
+                <source src="promo-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="searchOverlay"
+        class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
+        <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
+            <input type="text" placeholder="Search the website..."
+                class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
+            <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
+                <svg class="w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <button onclick="toggleSearch()"
+            class="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-[#cc2128] transition-colors flex items-center gap-2">
+            <span class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1">Close</span>
+            <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="fullMenu"
+        class="fixed inset-0 bg-[#0c2b53] z-[50] flex items-center justify-center transition-all duration-500 opacity-0 invisible translate-x-full">
+        <!-- Background watermark logo for premium feel -->
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center">
+            <img src="assets/images/school_logo_white.svg" alt="" class="w-[800px] h-auto">
+        </div>
+
+        <!-- Menu Links -->
+        <div class="flex flex-col gap-4 md:gap-6 text-center relative z-10 w-full px-6">
+            <a href="index.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Home</a>
+            <a href="about-us.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">About
+                Us</a>
+            <a href="admission.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Admissions</a>
+            <a href="gallery.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Gallery</a>
+            <a href="careers.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Careers</a>
+            <a href="policies.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Policies</a>
+            <a href="contact-us.html"
+                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Contact
+                Us</a>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // --- Existing Navbar and Modal Logic ---
+        const navbar = document.getElementById('navbar');
+        const menuBtn = document.getElementById('menuBtn');
+        const fullMenu = document.getElementById('fullMenu');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const searchOverlay = document.getElementById('searchOverlay');
+        const schoolLogo = document.getElementById('school-logo');
+        const videoModal = document.getElementById('videoModal');
+        const promoVideo = document.getElementById('promoVideo');
+
+        let isMenuOpen = false;
+        let isSearchOpen = false;
+        let isVideoOpen = false;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#0c2b53]', 'shadow-2xl', 'py-4');
+                navbar.classList.remove('bg-gradient-to-b', 'from-black/80', 'via-black/40', 'to-transparent', 'pt-6', 'pb-12');
+                schoolLogo.classList.remove('w-[85px]', 'h-[85px]', 'lg:w-[100px]', 'lg:h-[100px]');
+                schoolLogo.classList.add('w-[60px]', 'h-[60px]', 'lg:w-[65px]', 'lg:h-[65px]');
+                schoolLogo.src = 'assets/images/school_logo_color.svg';
+            } else {
+                navbar.classList.remove('bg-[#0c2b53]', 'shadow-2xl', 'py-4');
+                navbar.classList.add('bg-gradient-to-b', 'from-black/80', 'via-black/40', 'to-transparent', 'pt-6', 'pb-12');
+                schoolLogo.classList.remove('w-[60px]', 'h-[60px]', 'lg:w-[65px]', 'lg:h-[65px]');
+                schoolLogo.classList.add('w-[85px]', 'h-[85px]', 'lg:w-[100px]', 'lg:h-[100px]');
+                schoolLogo.src = 'assets/images/school_logo_white.svg';
+            }
+        });
+
+        window.openVideo = function () {
+            isVideoOpen = true;
+            videoModal.classList.remove('hidden');
+            setTimeout(() => {
+                videoModal.classList.add('flex');
+                videoModal.classList.remove('opacity-0');
+                promoVideo.play();
+            }, 10);
+            document.body.classList.add('overflow-hidden');
+        };
+
+        window.closeVideo = function () {
+            isVideoOpen = false;
+            videoModal.classList.add('opacity-0');
+            setTimeout(() => {
+                videoModal.classList.add('hidden');
+                videoModal.classList.remove('flex');
+                promoVideo.pause();
+                promoVideo.currentTime = 0;
+            }, 500);
+            if (!isMenuOpen && !isSearchOpen) document.body.classList.remove('overflow-hidden');
+        };
+
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) closeVideo();
+        });
+
+        window.toggleSearch = function () {
+            isSearchOpen = !isSearchOpen;
+            if (isSearchOpen) {
+                if (isMenuOpen) toggleMenu();
+                searchOverlay.classList.remove('-translate-y-full');
+                searchOverlay.classList.add('translate-y-0');
+                document.body.classList.add('overflow-hidden');
+                setTimeout(() => searchOverlay.querySelector('input').focus(), 300);
+            } else {
+                searchOverlay.classList.add('-translate-y-full');
+                searchOverlay.classList.remove('translate-y-0');
+                if (!isMenuOpen && !isVideoOpen) document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                if (isSearchOpen) toggleSearch();
+                fullMenu.classList.remove('opacity-0', 'invisible', 'translate-x-full');
+                fullMenu.classList.add('opacity-100', 'visible', 'translate-x-0');
+                menuBtn.classList.add('menu-open');
+                document.body.classList.add('overflow-hidden');
+                menuItems.forEach((item, i) => {
+                    setTimeout(() => {
+                        item.classList.remove('translate-y-10', 'opacity-0');
+                        item.classList.add('translate-y-0', 'opacity-100');
+                    }, 300 + (i * 100));
+                });
+            } else {
+                fullMenu.classList.remove('opacity-100', 'visible', 'translate-x-0');
+                fullMenu.classList.add('opacity-0', 'invisible', 'translate-x-full');
+                menuBtn.classList.remove('menu-open');
+                if (!isSearchOpen && !isVideoOpen) document.body.classList.remove('overflow-hidden');
+                menuItems.forEach((item) => {
+                    item.classList.add('translate-y-10', 'opacity-0');
+                    item.classList.remove('translate-y-0', 'opacity-100');
+                });
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+
+        // --- Our School Auto-Carousel Logic ---
+
+        const schoolSlides = [
+            {
+                color: '#9B2039', // Dark Red
+                age: 'Age 2 - 5', title: 'Early Years', subtitle: 'Nursery - FS2',
+                desc: 'The Early Years are an important time of growth, learning and development. We take a holistic approach to Early Years education, nurturing language and communication skills alongside emotional and social awareness, health and physical development. It means each child starts school in a way exactly right for them.',
+                statHTML: `<p class="text-lg md:text-xl font-medium">SIS has in excess of</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">1300</p><p class="text-lg md:text-xl font-medium">students</p>`,
+                img: 'assets/images/general/early-years.png', // Ensure this is a PNG with transparent background
+                tab1: 'Age 2 - 5', tab2: 'Early Years', tab3: 'Nursery - FS2'
+            },
+            {
+                color: '#C45A17', // Orange
+                age: 'Age 5 - 11', title: 'Primary', subtitle: 'Years 1 - 6',
+                desc: 'SIS Primary is a warm, vibrant and welcoming school, where learning is at the heart of everything we do. We are committed to providing a safe, secure and happy environment where students from around 60 nationalities come together to learn inside and outside the classroom, in an atmosphere of mutual respect and international mindedness.',
+                statHTML: `<p class="text-lg md:text-xl font-medium">Campus designed for<br>over</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">1600</p><p class="text-lg md:text-xl font-medium">students</p>`,
+                img: 'assets/images/general/primary.png',
+                tab1: 'Age 5 - 11', tab2: 'Primary', tab3: 'Years 1 - 6'
+            },
+            {
+                color: '#1E842D', // Green
+                age: 'Age 11 - 14', title: 'Key Stage 3', subtitle: 'Years 7 - 9',
+                desc: 'Key Stage 3 at SIS is varied and stimulating – building on the excellent work of SIS Primary. Students in KS3 develop their skills and knowledge across a broad range of academic subjects, combined with outstanding opportunities for personal development – so that all students can "learn to live, learn to learn and learn to lead".',
+                statHTML: `<p class="text-lg md:text-xl font-medium">Welcomes students<br>from over</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">60</p><p class="text-lg md:text-xl font-medium">Countries</p>`,
+                img: 'assets/images/general/ks3.png',
+                tab1: 'Age 11 - 14', tab2: 'Key Stage 3', tab3: 'Years 7 - 9'
+            },
+            {
+                color: '#540D8D', // Purple
+                age: 'Age 14 - 16', title: 'Key Stage 4 - IGCSE', subtitle: 'Years 10 - 11',
+                desc: 'In Key Stage 4, students follow the two-year Cambridge International Examination (CIE), International General Certificate of Secondary Education (IGCSE) programme. Our students study a wide range of subjects and attain excellent results which are highly comparable to those of other top international schools across the world.',
+                statHTML: `<p class="text-lg md:text-xl font-medium">Nearly</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">50</p><p class="text-lg md:text-xl font-medium leading-tight">years of global<br>education</p>`,
+                img: 'ks4.png',
+                tab1: 'Age 14 - 16', tab2: 'Key Stage 4 - IGCSE', tab3: 'Years 10 - 11'
+            },
+            {
+                color: '#068378', // Teal
+                age: 'Age 16 - 18', title: 'Key Stage 5 - IB', subtitle: 'Years 12 - 13',
+                desc: 'Most students follow the International Baccalaureate (IB) Diploma Programme – the gold-standard for post-16 education. However, where appropriate we also offer other courses which also provide access to university courses around the world. Supported by one-to-one support and guidance, students consistently gain places at top universities across the world.',
+                statHTML: `<p class="text-2xl md:text-[28px] font-medium leading-snug px-4">British-style education<br>global vision</p>`,
+                img: 'ks5.png',
+                tab1: 'Age 16 - 18', tab2: 'Key Stage 5 - IB', tab3: 'Years 12 - 13'
+            }
+        ];
+
+        let currentSchoolSlide = 0;
+        let slideInterval;
+        const SLIDE_DURATION = 6000;
+
+        function renderTabs() {
+            const container = document.getElementById('navTabsContainer');
+            container.innerHTML = '';
+
+            schoolSlides.forEach((slide, index) => {
+                const tab = document.createElement('button');
+
+                // Base styles
+                tab.className = `flex-1 min-w-[120px] max-w-[220px] px-2 py-3 rounded-t-xl transition-all duration-[600ms] ease-in-out flex flex-col items-center justify-center text-center shadow-lg relative shrink-0 cursor-pointer outline-none`;
+
+                // Coordinate colors precisely based on active state
+                if (index === currentSchoolSlide) {
+                    tab.style.backgroundColor = slide.color;
+                    tab.style.color = 'white';
+                    tab.classList.add('z-10', 'transform', 'scale-y-[1.05]', 'origin-bottom');
+                } else {
+                    tab.style.backgroundColor = 'white';
+                    // Text color matches the target slide color! (as seen in screenshots)
+                    tab.style.color = slide.color;
+                    tab.classList.add('hover:bg-gray-50');
+                }
+
+                tab.onclick = () => goToSchoolSlide(index);
+                tab.innerHTML = `
+                    <span class="text-[10px] md:text-xs font-bold block mb-0.5 leading-tight opacity-90">${slide.tab1}</span>
+                    <span class="text-xs md:text-sm font-black block leading-tight mb-0.5">${slide.tab2}</span>
+                    <span class="text-[10px] md:text-xs block font-semibold leading-tight opacity-90">${slide.tab3}</span>
+                `;
+                container.appendChild(tab);
+            });
+        }
+
+        function updateSchoolSlide(index) {
+            const section = document.getElementById('ourSchoolSection');
+            const img = document.getElementById('osImage');
+            const textContainer = document.getElementById('osTextContainer');
+            const statsContainer = document.getElementById('osStatsContainer');
+            const prevBtn = document.getElementById('osPrevBtn');
+            const nextBtn = document.getElementById('osNextBtn');
+
+            // Subtly move background circles for parallax effect
+            document.getElementById('osBgCircle1').style.transform = `scale(${1 + (index * 0.05)}) translate(${index * 10}px, ${index * -5}px)`;
+            document.getElementById('osBgCircle2').style.transform = `scale(${1 - (index * 0.03)}) translate(${index * -15}px, ${index * 10}px)`;
+
+            const slide = schoolSlides[index];
+
+            // 1. Fade Out Content
+            img.classList.add('opacity-0');
+            textContainer.classList.add('opacity-0');
+            statsContainer.classList.add('opacity-0');
+
+            // 2. Crossfade Section Background Color
+            section.style.backgroundColor = slide.color;
+
+            // 3. Update Nav Arrow Icon Colors
+            prevBtn.style.color = slide.color;
+            nextBtn.style.color = slide.color;
+
+            // 4. Update Tabs Color Coordination
+            renderTabs();
+
+            // 5. Swap details and Fade In
+            setTimeout(() => {
+                img.src = slide.img;
+                document.getElementById('osAge').textContent = slide.age;
+                document.getElementById('osTitle').textContent = slide.title;
+                document.getElementById('osSubtitle').textContent = slide.subtitle;
+                document.getElementById('osDesc').textContent = slide.desc;
+                document.getElementById('osStatsInner').innerHTML = slide.statHTML;
+
+                img.classList.remove('opacity-0');
+                textContainer.classList.remove('opacity-0');
+                statsContainer.classList.remove('opacity-0');
+            }, 400); // Wait for fade out to complete before swapping
+        }
+
+        function startAutoPlay() {
+            slideInterval = setInterval(nextSchoolSlide, SLIDE_DURATION);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(slideInterval);
+            startAutoPlay();
+        }
+
+        function nextSchoolSlide() {
+            currentSchoolSlide = (currentSchoolSlide + 1) % schoolSlides.length;
+            updateSchoolSlide(currentSchoolSlide);
+            resetAutoPlay();
+        }
+
+        function prevSchoolSlide() {
+            currentSchoolSlide = (currentSchoolSlide - 1 + schoolSlides.length) % schoolSlides.length;
+            updateSchoolSlide(currentSchoolSlide);
+            resetAutoPlay();
+        }
+
+        function goToSchoolSlide(index) {
+            if (index === currentSchoolSlide) return;
+            currentSchoolSlide = index;
+            updateSchoolSlide(index);
+            resetAutoPlay();
+        }
+
+        // Initialize Carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTabs();
+            // Arrow colors need initial setup
+            document.getElementById('osPrevBtn').style.color = schoolSlides[0].color;
+            document.getElementById('osNextBtn').style.color = schoolSlides[0].color;
+            startAutoPlay();
+        });
+
+    </script>
+
+    <!-- Wave Transition -->
+    <div class="wave-container">
+        <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
+                fill="#0c2b53" opacity="0.4"></path>
+            <path
+                d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
+                fill="#0c2b53" opacity="0.6"></path>
+            <path
+                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
+                fill="#0c2b53"></path>
+        </svg>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#0c2b53] text-white pt-20 pb-10 relative overflow-hidden">
+        <!-- Floating Watermark -->
+        <div class="absolute right-[-5%] bottom-[-5%] opacity-[0.04] pointer-events-none">
+            <img src="assets/images/school_logo_white.svg" alt="" class="w-[500px] h-auto">
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <!-- Footer Header / Logo Area -->
+            <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-white/10 pb-12">
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/school_logo_white.svg" alt="SIS Logo"
+                        class="w-16 h-16 lg:w-20 lg:h-20 object-contain">
+                    <div
+                        class="flex flex-col font-bold text-[14px] lg:text-[16px] leading-[1.1] tracking-wider uppercase">
+                        <span>Success</span>
+                        <span>International</span>
+                        <span>School</span>
+                    </div>
+                </div>
+                <div class="hidden md:block h-12 w-[1px] bg-white/20 mx-4"></div>
+                <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
+                    Inspiring global thinkers and engaged leaders for over 10 years, fostering excellence in education
+                    across our branches.
+                </p>
+            </div>
+
+            <!-- Main Footer Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-20">
+
+                <!-- Column 1: Admissions -->
+                <div class="flex flex-col items-start px-12 md:px-0">
+                    <h4 class="text-2xl font-bold mb-6 text-white">Admissions</h4>
+                    <p class="text-white/80 text-sm leading-relaxed mb-8 max-w-xs">
+                        Join our community of learners. Click below to start your journey with Success International
+                        School.
+                    </p>
+                    <a href="admission.html"
+                        class="inline-block bg-[#a6192e] text-white font-bold py-4 px-10 rounded hover:bg-[#8d1527] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[#a6192e]/40 mb-10 w-full md:w-auto text-center">
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Column 2: Get In Touch -->
+                <div class="flex flex-col items-start px-12 md:px-0">
+                    <h4 class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
+                    <p class="text-[15px] font-bold text-white mb-2 uppercase">Success International School</p>
+                    <p class="text-white/70 text-sm mb-6">+966 12 213 1900<br>info@success.edu.sa</p>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div class="flex flex-col items-start px-12 md:px-0">
+                    <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="flex flex-col gap-y-3">
+                        <li><a href="about-us.html" class="text-white/70 hover:text-white transition-all">About Us</a>
+                        </li>
+                        <li><a href="admission.html"
+                                class="text-white/70 hover:text-white transition-all">Admissions</a></li>
+                        <li><a href="gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
+                        </li>
+                        <li><a href="careers.html" class="text-white/70 hover:text-white transition-all">Careers</a>
+                        </li>
+                        <li><a href="policies.html" class="text-white/70 hover:text-white transition-all">Policies</a>
+                        </li>
+                        <li><a href="contact-us.html" class="text-white/70 hover:text-white transition-all">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
+                &copy; 2026 Success International School. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+</html>
