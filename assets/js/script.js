@@ -334,8 +334,93 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoPlay();
     }
 
-    // --- 8. Hero Entrance Trigger ---
-    document.querySelectorAll('.hero-entrance').forEach(el => {
-        setTimeout(() => el.classList.add('active'), 100);
+    // --- 9. Gallery Filtering & Lightbox ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    let currentGalleryIndex = 0;
+    let visibleItems = [];
+
+    // Filtering Logic
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            
+            // Update buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter items
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.classList.remove('hidden');
+                    setTimeout(() => item.classList.add('active'), 50);
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Refresh visible items for lightbox
+            updateVisibleItems();
+        });
+    });
+
+    function updateVisibleItems() {
+        visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+    }
+    updateVisibleItems();
+
+    // Lightbox Logic
+    window.openLightbox = function(imgElement) {
+        if (!lightbox || !lightboxImg) return;
+        
+        const item = imgElement.closest('.gallery-item');
+        currentGalleryIndex = visibleItems.indexOf(item);
+        
+        updateLightboxContent();
+        lightbox.classList.remove('hidden');
+        setTimeout(() => lightbox.classList.add('active'), 10);
+        document.body.classList.add('overflow-hidden');
+    };
+
+    window.closeLightbox = function() {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        setTimeout(() => lightbox.classList.add('hidden'), 500);
+        if (!isMenuOpen && !isSearchOpen) document.body.classList.remove('overflow-hidden');
+    };
+
+    window.nextLightbox = function() {
+        currentGalleryIndex = (currentGalleryIndex + 1) % visibleItems.length;
+        updateLightboxContent();
+    };
+
+    window.prevLightbox = function() {
+        currentGalleryIndex = (currentGalleryIndex - 1 + visibleItems.length) % visibleItems.length;
+        updateLightboxContent();
+    };
+
+    function updateLightboxContent() {
+        const item = visibleItems[currentGalleryIndex];
+        const img = item.querySelector('img');
+        const title = item.querySelector('h3').textContent;
+        const category = item.querySelector('span').textContent;
+
+        lightboxImg.src = img.src;
+        lightboxCaption.querySelector('h3').textContent = title;
+        lightboxCaption.querySelector('p').textContent = category;
+    }
+
+    // Keyboard support for Lightbox
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || lightbox.classList.contains('hidden')) return;
+        
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextLightbox();
+        if (e.key === 'ArrowLeft') prevLightbox();
     });
 });
+

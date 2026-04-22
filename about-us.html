@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/school_logo_color.svg">
     <style></style>
 </head>
 
@@ -355,174 +356,179 @@
             </svg>
         </button>
 
-        <!-- Video Container -->
-        <div class="w-full max-w-6xl px-4 md:px-8 aspect-video relative">
-            <video id="promoVideo" controls class="w-full h-full object-contain rounded-lg shadow-2xl bg-black">
-                <!-- Replace with your local promotional video -->
-                <source src="promo-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
 
-    <!-- Search Overlay -->
-    <div id="searchOverlay"
-        class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
-        <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
-            <input type="text" placeholder="Search the website..."
-                class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
-            <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
-                <svg class="w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                    viewBox="0 0 256 256">
-                    <path
-                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
-                    </path>
+
+        <!-- Search Overlay -->
+        <div id="searchOverlay"
+            class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
+            <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
+                <input type="text" placeholder="Search the website..."
+                    class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
+                <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
+                    <svg class="w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <button onclick="toggleSearch()"
+                class="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-[#cc2128] transition-colors flex items-center gap-2">
+                <span class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1">Close</span>
+                <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-        <button onclick="toggleSearch()"
-            class="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-[#cc2128] transition-colors flex items-center gap-2">
-            <span class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1">Close</span>
-            <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 6L6 18M6 6l12 12"></path>
+
+        <!-- Full Screen Menu Overlay -->
+        <div id="fullMenu"
+            class="fixed inset-0 bg-[#0c2b53] z-[50] flex items-center justify-center transition-all duration-500 opacity-0 invisible translate-x-full">
+            <!-- Background watermark logo for premium feel -->
+            <div class="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center">
+                <img src="assets/images/school_logo_white.svg" alt="" class="w-[800px] h-auto">
+            </div>
+
+            <!-- Menu Links -->
+            <div class="flex flex-col gap-4 md:gap-6 text-center relative z-10 w-full px-6">
+                <a href="index.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Home</a>
+                <a href="about-us.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">About
+                    Us</a>
+            <a href="sections/kg.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">KG Section</a>
+            <a href="sections/primary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Primary Section</a>
+            <a href="sections/secondary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Secondary Section</a>
+                <a href="admission.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Admissions</a>
+                <a href="gallery.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Gallery</a>
+                <a href="careers.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Careers</a>
+                <a href="policies.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Policies</a>
+                <a href="contact-us.html"
+                    class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Contact
+                    Us</a>
+            </div>
+        </div>
+
+        <!-- Interactive Scripts -->
+        <script src="assets/js/script.js" defer></script>
+        <!-- Wave Transition -->
+        <div class="wave-container">
+            <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path class="wave-path-1"
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
+                    fill="#0c2b53" opacity="0.4"></path>
+                <path class="wave-path-2"
+                    d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
+                    fill="#0c2b53" opacity="0.6"></path>
+                <path class="wave-path-3"
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
+                    fill="#0c2b53"></path>
             </svg>
-        </button>
-    </div>
-
-    <!-- Full Screen Menu Overlay -->
-    <div id="fullMenu"
-        class="fixed inset-0 bg-[#0c2b53] z-[50] flex items-center justify-center transition-all duration-500 opacity-0 invisible translate-x-full">
-        <!-- Background watermark logo for premium feel -->
-        <div class="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center">
-            <img src="assets/images/school_logo_white.svg" alt="" class="w-[800px] h-auto">
         </div>
 
-        <!-- Menu Links -->
-        <div class="flex flex-col gap-4 md:gap-6 text-center relative z-10 w-full px-6">
-            <a href="index.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Home</a>
-            <a href="about-us.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">About
-                Us</a>
-            <a href="admission.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Admissions</a>
-            <a href="gallery.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Gallery</a>
-            <a href="careers.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Careers</a>
-            <a href="policies.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Policies</a>
-            <a href="contact-us.html"
-                class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Contact
-                Us</a>
-        </div>
-    </div>
+        <!-- Footer Section -->
+        <footer class="bg-[#0c2b53] text-white pt-20 pb-10 relative overflow-hidden">
+            <!-- Floating Watermark -->
+            <div class="absolute right-[-5%] bottom-[-5%] opacity-[0.04] pointer-events-none">
+                <img src="assets/images/school_logo_white.svg" alt="" class="w-[500px] h-auto">
+            </div>
 
-    <!-- Interactive Scripts -->
-    <script src="assets/js/script.js" defer></script>
-    <!-- Wave Transition -->
-    <div class="wave-container">
-        <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path class="wave-path-1"
-                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
-                fill="#0c2b53" opacity="0.4"></path>
-            <path class="wave-path-2"
-                d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
-                fill="#0c2b53" opacity="0.6"></path>
-            <path class="wave-path-3"
-                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
-                fill="#0c2b53"></path>
-        </svg>
-    </div>
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+                <!-- Footer Header / Logo Area -->
+                <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-white/10 pb-12">
+                    <div class="flex items-center gap-4">
+                        <img src="assets/images/school_logo_white.svg" alt="SIS Logo"
+                            class="w-16 h-16 lg:w-20 lg:h-20 object-contain">
+                        <div
+                            class="flex flex-col font-bold text-[14px] lg:text-[16px] leading-[1.1] tracking-wider uppercase">
+                            <span>Success</span>
+                            <span>International</span>
+                            <span>School</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block h-12 w-[1px] bg-white/20 mx-4"></div>
+                    <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
+                        Inspiring global thinkers and engaged leaders for over 10 years, fostering excellence in
+                        education
+                        across our branches.
+                    </p>
+                </div>
 
-    <!-- Footer Section -->
-    <footer class="bg-[#0c2b53] text-white pt-20 pb-10 relative overflow-hidden">
-        <!-- Floating Watermark -->
-        <div class="absolute right-[-5%] bottom-[-5%] opacity-[0.04] pointer-events-none">
-            <img src="assets/images/school_logo_white.svg" alt="" class="w-[500px] h-auto">
-        </div>
+                <!-- Main Footer Columns -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-20">
 
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-            <!-- Footer Header / Logo Area -->
-            <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-white/10 pb-12">
-                <div class="flex items-center gap-4">
-                    <img src="assets/images/school_logo_white.svg" alt="SIS Logo"
-                        class="w-16 h-16 lg:w-20 lg:h-20 object-contain">
-                    <div
-                        class="flex flex-col font-bold text-[14px] lg:text-[16px] leading-[1.1] tracking-wider uppercase">
-                        <span>Success</span>
-                        <span>International</span>
-                        <span>School</span>
+                    <!-- Column 1: Admissions -->
+                    <div class="flex flex-col items-start px-12 md:px-0">
+                        <h4 class="text-2xl font-bold mb-6 text-white">Admissions</h4>
+                        <p class="text-white/80 text-sm leading-relaxed mb-8 max-w-xs">
+                            Join our community of learners. Click below to start your journey with Success International
+                            School.
+                        </p>
+                        <a href="admission.html"
+                            class="inline-block bg-[#a6192e] text-white font-bold py-4 px-10 rounded hover:bg-[#8d1527] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[#a6192e]/40 mb-10 w-full md:w-auto text-center">
+                            Apply Now
+                        </a>
+                    </div>
+
+                    <!-- Column 2: Get In Touch -->
+                    <div class="flex flex-col items-start px-12 md:px-0">
+                        <h4 class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
+                        <p class="text-[15px] font-bold text-white mb-2 uppercase">Success International School</p>
+                        <p class="text-white/70 text-sm mb-6">+966 12 213 1900<br>info@success.edu.sa</p>
+                    </div>
+
+                    <!-- Column 3: Quick Links -->
+                    <div class="flex flex-col items-start px-12 md:px-0">
+                        <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
+                        <ul class="flex flex-col gap-y-3">
+                            <li><a href="about-us.html" class="text-white/70 hover:text-white transition-all">About
+                                    Us</a></li>
+                        <li><a href="sections/kg.html" class="text-white/70 hover:text-white transition-all">KG Section</a></li>
+                        <li><a href="sections/primary.html" class="text-white/70 hover:text-white transition-all">Primary Section</a></li>
+                        <li><a href="sections/secondary.html" class="text-white/70 hover:text-white transition-all">Secondary Section</a></li>
+                            <li><a href="admission.html"
+                                    class="text-white/70 hover:text-white transition-all">Admissions</a></li>
+                            <li><a href="gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
+                            </li>
+                            <li><a href="careers.html" class="text-white/70 hover:text-white transition-all">Careers</a>
+                            </li>
+                            <li><a href="policies.html"
+                                    class="text-white/70 hover:text-white transition-all">Policies</a>
+                            </li>
+                            <li><a href="contact-us.html" class="text-white/70 hover:text-white transition-all">Contact
+                                    Us</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="hidden md:block h-12 w-[1px] bg-white/20 mx-4"></div>
-                <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
-                    Inspiring global thinkers and engaged leaders for over 10 years, fostering excellence in education
-                    across our branches.
-                </p>
-            </div>
 
-            <!-- Main Footer Columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-20">
-
-                <!-- Column 1: Admissions -->
-                <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Admissions</h4>
-                    <p class="text-white/80 text-sm leading-relaxed mb-8 max-w-xs">
-                        Join our community of learners. Click below to start your journey with Success International
-                        School.
-                    </p>
-                    <a href="admission.html"
-                        class="inline-block bg-[#a6192e] text-white font-bold py-4 px-10 rounded hover:bg-[#8d1527] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[#a6192e]/40 mb-10 w-full md:w-auto text-center">
-                        Apply Now
-                    </a>
-                </div>
-
-                <!-- Column 2: Get In Touch -->
-                <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
-                    <p class="text-[15px] font-bold text-white mb-2 uppercase">Success International School</p>
-                    <p class="text-white/70 text-sm mb-6">+966 12 213 1900<br>info@success.edu.sa</p>
-                </div>
-
-                <!-- Column 3: Quick Links -->
-                <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
-                    <ul class="flex flex-col gap-y-3">
-                        <li><a href="about-us.html" class="text-white/70 hover:text-white transition-all">About Us</a>
-                        </li>
-                        <li><a href="admission.html"
-                                class="text-white/70 hover:text-white transition-all">Admissions</a></li>
-                        <li><a href="gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
-                        </li>
-                        <li><a href="careers.html" class="text-white/70 hover:text-white transition-all">Careers</a>
-                        </li>
-                        <li><a href="policies.html" class="text-white/70 hover:text-white transition-all">Policies</a>
-                        </li>
-                        <li><a href="contact-us.html" class="text-white/70 hover:text-white transition-all">Contact
-                                Us</a></li>
-                    </ul>
+                <!-- Bottom Copyright Bar -->
+                <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
+                    &copy; 2026 Success International School. All rights reserved.
                 </div>
             </div>
-
-            <!-- Bottom Copyright Bar -->
-            <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
-                &copy; 2026 Success International School. All rights reserved.
+        </footer>
+        <!-- Floating Enquire Now Button -->
+        <a href="contact-us.html"
+            class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[55] flex items-center gap-3 bg-[#a6192e] text-white px-5 py-3 md:px-7 md:py-4 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:bg-[#851425] hover:-translate-y-1.5 transition-all duration-300 group border-2 border-white/20 backdrop-blur-sm pulse-white">
+            <div
+                class="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <span class="material-symbols-outlined text-xl md:text-2xl">edit_note</span>
             </div>
-        </div>
-    </footer>
-    <!-- Floating Enquire Now Button -->
-    <a href="contact-us.html"
-        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[55] flex items-center gap-3 bg-[#a6192e] text-white px-5 py-3 md:px-7 md:py-4 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:bg-[#851425] hover:-translate-y-1.5 transition-all duration-300 group border-2 border-white/20 backdrop-blur-sm pulse-white">
-        <div
-            class="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-            <span class="material-symbols-outlined text-xl md:text-2xl">edit_note</span>
-        </div>
-        <span class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase">Enquire Now</span>
-    </a>
+            <span class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase">Enquire Now</span>
+        </a>
 
 </body>
 
 </html>
 
-</html>
+
+
+
+
+

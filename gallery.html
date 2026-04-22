@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/school_logo_color.svg">
     <style></style>
 </head>
 
@@ -226,21 +227,21 @@
     </header>
 
     <!-- Category Filters -->
-    <div class="py-12 bg-white sticky top-20 z-40 border-b border-gray-100 flex justify-center">
+    <div class="py-12 bg-white sticky top-20 z-40 border-b border-gray-100 flex justify-center backdrop-blur-md bg-white/90">
         <div class="flex flex-wrap gap-4 px-6 max-w-[1200px] justify-center reveal">
-            <button
+            <button data-filter="all"
                 class="filter-btn active px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest border border-gray-200 hover:border-[#a6192e] transition-all">All
                 Photos</button>
-            <button
+            <button data-filter="boys"
                 class="filter-btn px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest border border-gray-200 hover:border-[#a6192e] transition-all">Boy's
                 Section</button>
-            <button
+            <button data-filter="girls"
                 class="filter-btn px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest border border-gray-200 hover:border-[#a6192e] transition-all">Girl's
                 Section</button>
-            <button
+            <button data-filter="kg"
                 class="filter-btn px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest border border-gray-200 hover:border-[#a6192e] transition-all">KG
                 Section</button>
-            <button
+            <button data-filter="events"
                 class="filter-btn px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest border border-gray-200 hover:border-[#a6192e] transition-all">Special
                 Events</button>
         </div>
@@ -252,50 +253,128 @@
             style="filter: invert(1);">
 
         <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
-            <div class="masonry-grid" id="galleryGrid">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item relative rounded-[30px] overflow-hidden group reveal"
-                    style="transition-delay: 100ms;">
-                    <img src="assets/images/general/welcome_girl.png"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110">
-                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery Item 1 (Wide) -->
+                <div class="gallery-item h-[400px] lg:col-span-2 relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="kg" style="transition-delay: 100ms;">
+                    <img src="assets/images/kg_gallery/lkg.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
                         <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">KG Section</span>
-                        <h3 class="text-xl font-bold">Interactive Learning Sessions</h3>
+                        <h3 class="text-2xl font-bold">Interactive Learning Sessions</h3>
                     </div>
                 </div>
+
                 <!-- Gallery Item 2 -->
-                <div class="gallery-item relative rounded-[30px] overflow-hidden group reveal"
-                    style="transition-delay: 200ms;">
+                <div class="gallery-item h-[400px] relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="events" style="transition-delay: 200ms;">
                     <img src="assets/images/general/Inspiring.jpg"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110">
-                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white">
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
                         <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Events</span>
                         <h3 class="text-xl font-bold">Annual Science Fair 2024</h3>
                     </div>
                 </div>
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item relative rounded-[30px] overflow-hidden group reveal"
-                    style="transition-delay: 300ms;">
-                    <img src="assets/images/al-mansoura/Al-Mansoura Branch.jpg"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110">
-                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white">
-                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Facilities</span>
-                        <h3 class="text-xl font-bold">New Campus Al-Mansoura</h3>
+
+                <!-- Gallery Item 3 (Tall) -->
+                <div class="gallery-item lg:row-span-2 h-[400px] lg:h-auto relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="boys" style="transition-delay: 300ms;">
+                    <img src="assets/images/kg_gallery/1.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Activities</span>
+                        <h3 class="text-xl font-bold">Sports Day Highlights</h3>
                     </div>
                 </div>
+
                 <!-- Gallery Item 4 -->
-                <div class="gallery-item relative h-[400px] rounded-[30px] overflow-hidden group reveal"
-                    style="transition-delay: 400ms;">
-                    <div
-                        class="absolute inset-0 bg-[#0c2b53] flex items-center justify-center p-12 text-center text-white">
-                        <div>
-                            <span class="material-symbols-outlined text-5xl mb-6 text-[#f7b926]">photo_library</span>
-                            <h3 class="text-2xl font-bold uppercase tracking-tight">Viewing 400+ Moments</h3>
-                        </div>
+                <div class="gallery-item h-[400px] relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="girls" style="transition-delay: 400ms;">
+                    <img src="assets/images/kg_gallery/2.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Girl's Section</span>
+                        <h3 class="text-xl font-bold">Art and Creativity Workshop</h3>
                     </div>
                 </div>
-                <!-- Add more dummy items or logic for loading more -->
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item h-[400px] relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="kg" style="transition-delay: 500ms;">
+                    <img src="assets/images/kg_gallery/3.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">KG Section</span>
+                        <h3 class="text-xl font-bold">Early Years Exploration</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 (Wide) -->
+                <div class="gallery-item h-[400px] lg:col-span-2 relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="events" style="transition-delay: 600ms;">
+                    <img src="assets/images/kg_gallery/4.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Special Events</span>
+                        <h3 class="text-2xl font-bold">Graduation Ceremony</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item h-[400px] relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="girls" style="transition-delay: 700ms;">
+                    <img src="assets/images/kg_gallery/5.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Girl's Section</span>
+                        <h3 class="text-xl font-bold">Science Experiments</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 (Tall) -->
+                <div class="gallery-item lg:row-span-2 h-[400px] lg:h-auto relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="boys" style="transition-delay: 800ms;">
+                    <img src="assets/images/kg_gallery/6.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Boy's Section</span>
+                        <h3 class="text-xl font-bold">Football Championship</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item h-[400px] relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="kg" style="transition-delay: 900ms;">
+                    <img src="assets/images/kg_gallery/7.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">KG Section</span>
+                        <h3 class="text-xl font-bold">Morning Circle Time</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 10 (Wide) -->
+                <div class="gallery-item h-[400px] lg:col-span-2 relative rounded-[30px] overflow-hidden group reveal" 
+                     data-category="events" style="transition-delay: 1000ms;">
+                    <img src="assets/images/kg_gallery/8.jpg"
+                        class="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 cursor-pointer"
+                        onclick="openLightbox(this)">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8 text-white pointer-events-none">
+                        <span class="text-[#f7b926] text-xs font-black uppercase tracking-widest mb-2">Events</span>
+                        <h3 class="text-2xl font-bold">Parents Teachers Meeting</h3>
+                    </div>
+                </div>
             </div>
+
 
             <div class="mt-20 text-center reveal">
                 <button
@@ -305,26 +384,29 @@
         </div>
     </section>
 
-    <!-- Video Modal Overlay -->
-    <div id="videoModal"
-        class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-500">
-        <!-- Close Button -->
-        <button onclick="closeVideo()"
-            class="absolute top-6 right-6 md:top-10 md:right-10 text-white/70 hover:text-white transition-colors z-50">
-            <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+    <!-- Custom Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+        <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white hover:text-[#f7b926] transition-colors">
+            <span class="material-symbols-outlined text-5xl">close</span>
+        </button>
+        
+        <button onclick="prevLightbox()" class="absolute left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-6xl">chevron_left</span>
+        </button>
+        
+        <button onclick="nextLightbox()" class="absolute right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-6xl">chevron_right</span>
         </button>
 
-        <!-- Video Container -->
-        <div class="w-full max-w-6xl px-4 md:px-8 aspect-video relative">
-            <video id="promoVideo" controls class="w-full h-full object-contain rounded-lg shadow-2xl bg-black">
-                <!-- Replace with your local promotional video -->
-                <source src="promo-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="max-w-[90vw] max-h-[80vh] relative group">
+            <img id="lightboxImg" src="" class="w-full h-full object-contain rounded-2xl shadow-2xl">
+            <div id="lightboxCaption" class="mt-6 text-center text-white">
+                <h3 class="text-2xl font-bold mb-1"></h3>
+                <p class="text-[#f7b926] uppercase tracking-widest text-sm font-black"></p>
+            </div>
         </div>
     </div>
+
 
     <!-- Search Overlay -->
     <div id="searchOverlay"
@@ -365,6 +447,9 @@
             <a href="about-us.html"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">About
                 Us</a>
+            <a href="sections/kg.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">KG Section</a>
+            <a href="sections/primary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Primary Section</a>
+            <a href="sections/secondary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Secondary Section</a>
             <a href="admission.html"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Admissions</a>
             <a href="gallery.html"
@@ -450,8 +535,10 @@
                 <div class="flex flex-col items-start px-12 md:px-0">
                     <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
                     <ul class="flex flex-col gap-y-3">
-                        <li><a href="about-us.html" class="text-white/70 hover:text-white transition-all">About Us</a>
-                        </li>
+                        <li><a href="about-us.html" class="text-white/70 hover:text-white transition-all">About Us</a></li>
+                        <li><a href="sections/kg.html" class="text-white/70 hover:text-white transition-all">KG Section</a></li>
+                        <li><a href="sections/primary.html" class="text-white/70 hover:text-white transition-all">Primary Section</a></li>
+                        <li><a href="sections/secondary.html" class="text-white/70 hover:text-white transition-all">Secondary Section</a></li>
                         <li><a href="admission.html"
                                 class="text-white/70 hover:text-white transition-all">Admissions</a></li>
                         <li><a href="gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
@@ -486,4 +573,8 @@
 
 </html>
 
-</html>
+
+
+
+
+
