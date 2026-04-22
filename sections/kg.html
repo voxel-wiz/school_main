@@ -222,7 +222,7 @@
                 </div>
                 <div class="relative reveal" style="transition-delay: 200ms;">
                     <div class="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/10 aspect-video">
-                        <img src="../assets/images/kg/kg1.jpg" alt="KG Students" class="w-full h-full object-cover">
+                        <img src="../assets/images/kg_gallery/lkg.jpg" alt="KG Students" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -258,7 +258,20 @@
             </div>
         </div>
     </section>
-
+    <!-- Wave Transition -->
+    <div class="wave-container">
+        <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path class="wave-path-1"
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
+                fill="#0c2b53" opacity="0.4"></path>
+            <path class="wave-path-2"
+                d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
+                fill="#0c2b53" opacity="0.6"></path>
+            <path class="wave-path-3"
+                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
+                fill="#0c2b53"></path>
+        </svg>
+    </div>
     <!-- Footer Section -->
     <footer class="bg-[#0c2b53] text-white pt-20 pb-10 relative overflow-hidden">
         <!-- Floating Watermark -->
@@ -413,20 +426,7 @@
 
     <!-- Interactive Scripts -->
     <script src="../assets/js/script.js" defer></script>
-    <!-- Wave Transition -->
-    <div class="wave-container">
-        <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path class="wave-path-1"
-                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,0,1200,0V120H0Z"
-                fill="#0c2b53" opacity="0.4"></path>
-            <path class="wave-path-2"
-                d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.37,6.34,114.06-59,173.66-58,124.41,2,93.44,115,229.66,115a454.8,454.8,0,0,0,239.31-73.07C743,33.06,944.8,111.41,1016.92,107.08c62.67-3.76,120.14-52.02,176.08-85.12L1200,15.81V120H0Z"
-                fill="#0c2b53" opacity="0.6"></path>
-            <path class="wave-path-3"
-                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V120H0Z"
-                fill="#0c2b53"></path>
-        </svg>
-    </div>
+
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
