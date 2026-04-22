@@ -16,7 +16,7 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/school_logo_color.svg">
-    <style></style>
+    <script src="assets/js/i18n.js"></script>
 </head>
 
 <body class="antialiased">
@@ -45,7 +45,7 @@
 
                 <!-- Translate Dropdown -->
                 <div class="hidden md:flex relative group h-full items-center">
-                    <button
+                    <button data-i18n="nav_translate"
                         class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                         Translate
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
@@ -59,11 +59,11 @@
                     <div
                         class="absolute top-full right-0 mt-4 w-40 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
                         <ul class="flex flex-col py-2">
-                            <li><a href="#"
+                            <li><a href="javascript:void(0)" onclick="setLanguage('ar')" data-i18n="nav_arabic"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Arabic</a>
                             </li>
-                            <li><a href="#"
-                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">French</a>
+                            <li><a href="javascript:void(0)" onclick="setLanguage('en')" data-i18n="nav_english"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">English</a>
                             </li>
                         </ul>
                     </div>
@@ -71,7 +71,7 @@
 
                 <!-- Quick Links Dropdown -->
                 <div class="hidden md:flex relative group h-full items-center">
-                    <button
+                    <button data-i18n="nav_quick_links"
                         class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                         Quick Links
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
@@ -85,13 +85,13 @@
                     <div
                         class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
                         <ul class="flex flex-col py-2">
-                            <li><a href="admission.html"
+                            <li><a href="admission.html" data-i18n="nav_admissions"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Admissions</a>
                             </li>
-                            <li><a href="careers.html"
+                            <li><a href="careers.html" data-i18n="nav_careers"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Careers</a>
                             </li>
-                            <li><a href="gallery.html"
+                            <li><a href="gallery.html" data-i18n="nav_gallery"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Gallery</a>
                             </li>
                         </ul>
@@ -100,7 +100,7 @@
 
                 <!-- Branches Dropdown -->
                 <div class="hidden md:flex relative group h-full items-center">
-                    <button
+                    <button data-i18n="nav_branches"
                         class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                         Branches
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
@@ -114,15 +114,15 @@
                     <div
                         class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
                         <ul class="flex flex-col py-2">
-                            <li><a href="branches/al-mansoura.html"
+                            <li><a href="branches/al-mansoura.html" data-i18n="nav_mansoura"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
                                     Mansoura Branch</a>
                             </li>
-                            <li><a href="branches/al-munawwara.html"
+                            <li><a href="branches/al-munawwara.html" data-i18n="nav_munawwara"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
                                     Munawwara Branch</a>
                             </li>
-                            <li><a href="branches/ar-rabia.html"
+                            <li><a href="branches/ar-rabia.html" data-i18n="nav_rabia"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Ar
                                     Rabia Branch</a>
                             </li>
@@ -131,7 +131,7 @@
                 </div>
 
                 <!-- Search Button -->
-                <button onclick="toggleSearch()"
+                <button onclick="toggleSearch()" data-i18n="nav_search"
                     class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                     Search
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -148,7 +148,7 @@
                     <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-1">
                     </div>
                     <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]"
-                        id="menu-text">MENU</span>
+                        id="menu-text" data-i18n="nav_menu">MENU</span>
                     <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-2">
                     </div>
                 </div>
@@ -219,10 +219,10 @@
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#0c2b53] via-transparent to-black/40 z-10"></div>
         <div class="relative z-20 w-full h-full flex flex-col justify-center items-center px-6">
-            <span class="text-[#f7b926] font-patrick wiggle tracking-[0.2em] uppercase mb-4 reveal active">Integrated
+            <span data-i18n="ims_subtitle" class="text-[#f7b926] font-patrick wiggle tracking-[0.2em] uppercase mb-4 reveal active">Integrated
                 Management
                 System</span>
-            <h1
+            <h1 data-i18n="ims_title"
                 class="text-white font-patrick wiggle text-[40px] md:text-[70px] leading-none tracking-tighter drop-shadow-xl reveal active uppercase text-center">
                 IMS Policy
             </h1>
@@ -263,16 +263,16 @@
         <div class="vision-glow absolute inset-0 pointer-events-none"></div>
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="reveal">
-                <h2
+                <h2 data-i18n="ims_vision_title"
                     class="font-['Merriweather',_serif] text-[#0c2b53] text-4xl md:text-5xl font-patrick wiggle mb-8 leading-tight">
                     Aligned with <br><span class="text-[#a6192e]">Vision 2030</span></h2>
-                <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                <p data-i18n="ims_vision_desc" class="text-gray-600 text-lg leading-relaxed mb-8">
                     Success International School is committed to providing quality education from KG upto XIIth Class,
                     aligning strictly with the values and goals of Saudi Arabia’s Vision 2030. Our Integrated Management
                     System facilitates this by ensuring operational excellence across all functional levels.
                 </p>
                 <div class="p-8 border-l-8 border-[#f7b926] bg-gray-50 rounded-r-[30px]">
-                    <p class="italic text-[#0c2b53] font-semibold text-lg">"Nurturing the minds that will shape the
+                    <p data-i18n="ims_quote" class="italic text-[#0c2b53] font-semibold text-lg">"Nurturing the minds that will shape the
                         kingdom's future through global standards."</p>
                 </div>
             </div>
@@ -300,7 +300,7 @@
     <!-- Detailed Commitments (Flip Cards logic implied by stagger) -->
     <section class="py-24 bg-[#0c2b53] text-white">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <h2 class="font-['Merriweather',_serif] text-4xl font-patrick wiggle mb-16 text-center reveal">Our
+            <h2 data-i18n="ims_commitments_title" class="font-['Merriweather',_serif] text-4xl font-patrick wiggle mb-16 text-center reveal">Our
                 Commitments</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Commitment 1 -->
@@ -310,8 +310,8 @@
                         class="w-12 h-12 bg-[#f7b926] rounded-xl flex items-center justify-center text-[#0c2b53] mb-6 shadow-lg shadow-[#f7b926]/20">
                         <span class="material-symbols-outlined">target</span>
                     </div>
-                    <h3 class="text-2xl font-patrick wiggle mb-4 uppercase tracking-tight">SMART Objectives</h3>
-                    <p class="text-white/70 text-sm leading-relaxed">Establish, implement, and maintain IMS objectives
+                    <h3 data-i18n="ims_smart_obj_title" class="text-2xl font-patrick wiggle mb-4 uppercase tracking-tight">SMART Objectives</h3>
+                    <p data-i18n="ims_smart_obj_desc" class="text-white/70 text-sm leading-relaxed">Establish, implement, and maintain IMS objectives
                         at all relevant functional levels to ensure data-driven growth.</p>
                 </div>
                 <!-- Commitment 2 -->
@@ -321,8 +321,8 @@
                         class="w-12 h-12 bg-[#a6192e] rounded-xl flex items-center justify-center text-white mb-6 shadow-lg shadow-[#a6192e]/20">
                         <span class="material-symbols-outlined">privacy_tip</span>
                     </div>
-                    <h3 class="text-2xl font-patrick wiggle mb-4 uppercase tracking-tight">Data Privacy</h3>
-                    <p class="text-white/70 text-sm leading-relaxed">Absolute commitment to protecting the privacy of
+                    <h3 data-i18n="ims_data_privacy_title" class="text-2xl font-patrick wiggle mb-4 uppercase tracking-tight">Data Privacy</h3>
+                    <p data-i18n="ims_data_privacy_desc" class="text-white/70 text-sm leading-relaxed">Absolute commitment to protecting the privacy of
                         personally identifiable information (PII) for students and staff.</p>
                 </div>
                 <!-- Commitment 3 -->
@@ -332,8 +332,8 @@
                         class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#0c2b53] mb-6 shadow-lg shadow-white/20">
                         <span class="material-symbols-outlined">verified</span>
                     </div>
-                    <h3 class="text-2xl font-patrick wiggle mb-4 uppercase tracking-tight">Global Integrity</h3>
-                    <p class="text-white/70 text-sm leading-relaxed">Encouraging raising concerns in good faith with
+                    <h3 data-i18n="ims_global_integrity_title" class="text-2xl font-patrick wiggle mb-4 uppercase tracking-tight">Global Integrity</h3>
+                    <p data-i18n="ims_global_integrity_desc" class="text-white/70 text-sm leading-relaxed">Encouraging raising concerns in good faith with
                         guaranteed protection from retaliation and focus on zero-tolerance for bribery.</p>
                 </div>
             </div>
@@ -344,7 +344,7 @@
     <div id="searchOverlay"
         class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
         <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
-            <input type="text" placeholder="Search the website..."
+            <input type="text" placeholder="Search the website..." data-i18n="search_placeholder"
                 class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
             <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
                 <svg class="w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -357,7 +357,7 @@
         </div>
         <button onclick="toggleSearch()"
             class="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-[#cc2128] transition-colors flex items-center gap-2">
-            <span class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1">Close</span>
+            <span data-i18n="search_close" class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1">Close</span>
             <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 6L6 18M6 6l12 12"></path>
             </svg>
@@ -374,23 +374,23 @@
 
         <!-- Menu Links -->
         <div class="flex flex-col gap-4 md:gap-6 text-center relative z-10 w-full px-6">
-            <a href="index.html"
+            <a href="index.html" data-i18n="nav_home"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Home</a>
-            <a href="about-us.html"
+            <a href="about-us.html" data-i18n="nav_about"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">About
                 Us</a>
-            <a href="sections/kg.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">KG Section</a>
-            <a href="sections/primary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Primary Section</a>
-            <a href="sections/secondary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Secondary Section</a>
-            <a href="admission.html"
+            <a href="sections/kg.html" data-i18n="nav_kg" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">KG Section</a>
+            <a href="sections/primary.html" data-i18n="nav_primary" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Primary Section</a>
+            <a href="sections/secondary.html" data-i18n="nav_secondary" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Secondary Section</a>
+            <a href="admission.html" data-i18n="nav_admissions"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Admissions</a>
-            <a href="gallery.html"
+            <a href="gallery.html" data-i18n="nav_gallery"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Gallery</a>
-            <a href="careers.html"
+            <a href="careers.html" data-i18n="nav_careers"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Careers</a>
-            <a href="policies.html"
+            <a href="policies.html" data-i18n="nav_policies"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Policies</a>
-            <a href="contact-us.html"
+            <a href="contact-us.html" data-i18n="nav_contact"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Contact
                 Us</a>
         </div>
@@ -434,7 +434,7 @@
                     </div>
                 </div>
                 <div class="hidden md:block h-12 w-[1px] bg-white/20 mx-4"></div>
-                <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
+                <p data-i18n="footer_desc" class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
                     Inspiring global thinkers and engaged leaders for over 10 years, fostering excellence in education
                     across our branches.
                 </p>
@@ -445,12 +445,12 @@
 
                 <!-- Column 1: Admissions -->
                 <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Admissions</h4>
+                    <h4 data-i18n="nav_admissions" class="text-2xl font-bold mb-6 text-white">Admissions</h4>
                     <p class="text-white/80 text-sm leading-relaxed mb-8 max-w-xs">
                         Join our community of learners. Click below to start your journey with Success International
                         School.
                     </p>
-                    <a href="admission.html"
+                    <a href="admission.html" data-i18n="footer_apply"
                         class="inline-block bg-[#a6192e] text-white font-bold py-4 px-10 rounded hover:bg-[#8d1527] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[#a6192e]/40 mb-10 w-full md:w-auto text-center">
                         Apply Now
                     </a>
@@ -458,35 +458,35 @@
 
                 <!-- Column 2: Get In Touch -->
                 <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
+                    <h4 data-i18n="footer_get_in_touch" class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
                     <p class="text-[15px] font-bold text-white mb-2 uppercase">Success International School</p>
                     <p class="text-white/70 text-sm mb-6">+966 12 213 1900<br>info@success.edu.sa</p>
                 </div>
 
                 <!-- Column 3: Quick Links -->
                 <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
+                    <h4 data-i18n="footer_quick_links" class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
                     <ul class="flex flex-col gap-y-3">
-                        <li><a href="about-us.html" class="text-white/70 hover:text-white transition-all">About Us</a></li>
-                        <li><a href="sections/kg.html" class="text-white/70 hover:text-white transition-all">KG Section</a></li>
-                        <li><a href="sections/primary.html" class="text-white/70 hover:text-white transition-all">Primary Section</a></li>
-                        <li><a href="sections/secondary.html" class="text-white/70 hover:text-white transition-all">Secondary Section</a></li>
-                        <li><a href="admission.html"
+                        <li><a href="about-us.html" data-i18n="nav_about" class="text-white/70 hover:text-white transition-all">About Us</a></li>
+                        <li><a href="sections/kg.html" data-i18n="nav_kg" class="text-white/70 hover:text-white transition-all">KG Section</a></li>
+                        <li><a href="sections/primary.html" data-i18n="nav_primary" class="text-white/70 hover:text-white transition-all">Primary Section</a></li>
+                        <li><a href="sections/secondary.html" data-i18n="nav_secondary" class="text-white/70 hover:text-white transition-all">Secondary Section</a></li>
+                        <li><a href="admission.html" data-i18n="nav_admissions"
                                 class="text-white/70 hover:text-white transition-all">Admissions</a></li>
-                        <li><a href="gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
+                        <li><a href="gallery.html" data-i18n="nav_gallery" class="text-white/70 hover:text-white transition-all">Gallery</a>
                         </li>
-                        <li><a href="careers.html" class="text-white/70 hover:text-white transition-all">Careers</a>
+                        <li><a href="careers.html" data-i18n="nav_careers" class="text-white/70 hover:text-white transition-all">Careers</a>
                         </li>
-                        <li><a href="policies.html" class="text-white/70 hover:text-white transition-all">Policies</a>
+                        <li><a href="policies.html" data-i18n="nav_policies" class="text-white/70 hover:text-white transition-all">Policies</a>
                         </li>
-                        <li><a href="contact-us.html" class="text-white/70 hover:text-white transition-all">Contact
+                        <li><a href="contact-us.html" data-i18n="nav_contact" class="text-white/70 hover:text-white transition-all">Contact
                                 Us</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Copyright Bar -->
-            <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
+            <div data-i18n="footer_rights" class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
                 &copy; 2026 Success International School. All rights reserved.
             </div>
         </div>
@@ -498,15 +498,17 @@
             class="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
             <span class="material-symbols-outlined text-xl md:text-2xl">edit_note</span>
         </div>
-        <span class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase">Enquire Now</span>
+        <span data-i18n="enquire_now" class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase">Enquire Now</span>
     </a>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>
-
-
-
-
-
-

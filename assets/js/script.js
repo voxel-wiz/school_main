@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!query || query.trim() === "") return;
 
         // Redirect to search results page
+        const isBranch = window.location.pathname.includes('/branches/');
         const searchPath = isBranch ? '../search-results.html' : 'search-results.html';
         window.location.href = `${searchPath}?q=${encodeURIComponent(query.trim())}`;
     };
@@ -190,32 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 7. "Our School" Auto-Carousel Logic (index.html) ---
     const schoolSlides = [
         {
-            color: '#9B2039', age: 'KG 1 - KG 3', title: 'KG Section', subtitle: 'Foundation Years',
-            desc: 'Follows a play-based, exploratory curriculum integrating the USA Common Core with the UK Early Years Foundation Stage (EYFS). Focusing on holistic development through seven key areas.',
-            statHTML: `<p class="text-lg md:text-xl font-medium">SIS has in excess of</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">1,750</p><p class="text-lg md:text-xl font-medium">students</p>`,
+            color: '#9B2039', 
             img: 'assets/images/kg_gallery/lkg.jpg',
-            tab1: 'KG 1 - KG 3', tab2: 'KG Section', tab3: 'Foundation',
             url: 'sections/kg.html'
         },
         {
-            color: '#C45A17', age: 'Grade 1 - 5', title: 'Primary Section', subtitle: 'Elementary Years',
-            desc: 'Focusing on academic, moral, and social dimensions. Integrating core subjects with Arabic and Islamic Studies to ensure balanced holistic growth from the start.',
-            statHTML: `<p class="text-lg md:text-xl font-medium">Over</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">14,500</p><p class="text-lg md:text-xl font-medium">Alumni</p>`,
+            color: '#C45A17', 
             img: 'assets/images/primary/primary.jpg',
-            tab1: 'Grade 1 - 5', tab2: 'Primary Section', tab3: 'Elementary',
             url: 'sections/primary.html'
         },
         {
-            color: '#1E842D', age: 'Grade 6 - 12', title: 'Secondary Section', subtitle: 'High School Years',
-            desc: 'Emphasizing college preparation, student-led learning, and 21st-century global citizenship. Guided through a broad curriculum that prepares learners for real-world challenges.',
-            statHTML: `<p class="text-lg md:text-xl font-medium">Expert Staff</p><p class="text-6xl lg:text-[80px] font-bold leading-none my-2">160+</p><p class="text-lg md:text-xl font-medium">Educators</p>`,
+            color: '#1E842D', 
             img: 'assets/images/secondary/secondary.jpg',
-            tab1: 'Grade 6 - 12', tab2: 'Secondary Section', tab3: 'High School',
             url: 'sections/secondary.html'
         }
     ];
-
-
 
     let currentSchoolSlide = 0;
     let slideInterval;
@@ -224,6 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderTabs() {
         if (!navTabsContainer) return;
+        const lang = localStorage.getItem('preferredLanguage') || 'en';
+        const t = translations[lang];
+
+        const slideKeys = [
+            { t1: 'slide_kg_age', t2: 'slide_kg_title', t3: 'slide_kg_subtitle' },
+            { t1: 'slide_primary_age', t2: 'slide_primary_title', t3: 'slide_primary_subtitle' },
+            { t1: 'slide_secondary_age', t2: 'slide_secondary_title', t3: 'slide_secondary_subtitle' }
+        ];
+
         navTabsContainer.innerHTML = '';
         schoolSlides.forEach((slide, index) => {
             const tab = document.createElement('button');
@@ -238,10 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 tab.classList.add('hover:bg-gray-50');
             }
             tab.onclick = () => goToSchoolSlide(index);
+            
+            const keys = slideKeys[index];
             tab.innerHTML = `
-                <span class="text-[10px] md:text-xs font-bold block mb-0.5 leading-tight opacity-90">${slide.tab1}</span>
-                <span class="text-xs md:text-sm font-black block leading-tight mb-0.5">${slide.tab2}</span>
-                <span class="text-[10px] md:text-xs block font-semibold leading-tight opacity-90">${slide.tab3}</span>
+                <span class="text-[10px] md:text-xs font-bold block mb-0.5 leading-tight opacity-90">${t[keys.t1]}</span>
+                <span class="text-xs md:text-sm font-black block leading-tight mb-0.5">${t[keys.t2]}</span>
+                <span class="text-[10px] md:text-xs block font-semibold leading-tight opacity-90">${t[keys.t3]}</span>
             `;
             navTabsContainer.appendChild(tab);
         });
@@ -250,6 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSchoolSlide(index) {
         const section = document.getElementById('ourSchoolSection');
         if (!section) return;
+
+        const lang = localStorage.getItem('preferredLanguage') || 'en';
+        const t = translations[lang];
 
         const img = document.getElementById('osImage');
         const textContainer = document.getElementById('osTextContainer');
@@ -261,6 +265,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('osBgCircle2')) document.getElementById('osBgCircle2').style.transform = `scale(${1 - (index * 0.03)}) translate(${index * -15}px, ${index * 10}px)`;
 
         const slide = schoolSlides[index];
+        const slideKeys = [
+            { age: 'slide_kg_age', title: 'slide_kg_title', subtitle: 'slide_kg_subtitle', desc: 'slide_kg_desc', val: 'slide_kg_stat_val', text: 'slide_kg_stat_text', prefix: 'slide_kg_stat_prefix' },
+            { age: 'slide_primary_age', title: 'slide_primary_title', subtitle: 'slide_primary_subtitle', desc: 'slide_primary_desc', val: 'slide_primary_stat_val', text: 'slide_primary_stat_text', prefix: 'slide_primary_stat_prefix' },
+            { age: 'slide_secondary_age', title: 'slide_secondary_title', subtitle: 'slide_secondary_subtitle', desc: 'slide_secondary_desc', val: 'slide_secondary_stat_val', text: 'slide_secondary_stat_text', prefix: 'slide_secondary_stat_prefix' }
+        ];
+        const keys = slideKeys[index];
+
         if (img) img.classList.add('opacity-0');
         if (textContainer) textContainer.classList.add('opacity-0');
         if (statsContainer) statsContainer.classList.add('opacity-0');
@@ -276,15 +287,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.src = slide.img;
                 img.classList.remove('opacity-0');
             }
-            if (document.getElementById('osAge')) document.getElementById('osAge').textContent = slide.age;
-            if (document.getElementById('osTitle')) document.getElementById('osTitle').textContent = slide.title;
-            if (document.getElementById('osSubtitle')) document.getElementById('osSubtitle').textContent = slide.subtitle;
-            if (document.getElementById('osDesc')) document.getElementById('osDesc').textContent = slide.desc;
-            if (document.getElementById('osStatsInner')) document.getElementById('osStatsInner').innerHTML = slide.statHTML;
+            if (document.getElementById('osAge')) document.getElementById('osAge').textContent = t[keys.age];
+            if (document.getElementById('osTitle')) document.getElementById('osTitle').textContent = t[keys.title];
+            if (document.getElementById('osSubtitle')) document.getElementById('osSubtitle').textContent = t[keys.subtitle];
+            if (document.getElementById('osDesc')) document.getElementById('osDesc').textContent = t[keys.desc];
+            if (document.getElementById('osStatsInner')) {
+                document.getElementById('osStatsInner').innerHTML = `
+                    <p class="text-lg md:text-xl font-medium">${t[keys.prefix]}</p>
+                    <p class="text-6xl lg:text-[80px] font-bold leading-none my-2">${t[keys.val]}</p>
+                    <p class="text-lg md:text-xl font-medium">${t[keys.text]}</p>
+                `;
+            }
 
             const learnMoreBtn = section.querySelector('button.bg-white.text-black');
             if (learnMoreBtn && slide.url) {
-                // Change button to a tag or just add click listener
+                learnMoreBtn.textContent = t['hero_cta'] || 'Learn more';
                 learnMoreBtn.onclick = () => window.location.href = slide.url;
             }
 
@@ -423,4 +440,3 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') prevLightbox();
     });
 });
-

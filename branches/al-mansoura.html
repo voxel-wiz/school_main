@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="../assets/images/school_logo_color.svg">
     <script src="../assets/js/i18n.js"></script>
-    <style></style>
 </head>
 
 <body class="antialiased">
@@ -72,7 +71,7 @@
 
                 <!-- Quick Links Dropdown -->
                 <div class="hidden md:flex relative group h-full items-center">
-                    <button
+                    <button data-i18n="nav_quick_links"
                         class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                         Quick Links
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
@@ -86,13 +85,13 @@
                     <div
                         class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
                         <ul class="flex flex-col py-2">
-                            <li><a href="../admission.html"
+                            <li><a href="../admission.html" data-i18n="nav_admissions"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Admissions</a>
                             </li>
-                            <li><a href="../careers.html"
+                            <li><a href="../careers.html" data-i18n="nav_careers"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Careers</a>
                             </li>
-                            <li><a href="../gallery.html"
+                            <li><a href="../gallery.html" data-i18n="nav_gallery"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Gallery</a>
                             </li>
                         </ul>
@@ -101,7 +100,7 @@
 
                 <!-- Branches Dropdown -->
                 <div class="hidden md:flex relative group h-full items-center">
-                    <button
+                    <button data-i18n="nav_branches"
                         class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                         Branches
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
@@ -115,15 +114,15 @@
                     <div
                         class="absolute top-full right-0 mt-4 w-56 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
                         <ul class="flex flex-col py-2">
-                            <li><a href="al-mansoura.html"
+                            <li><a href="al-mansoura.html" data-i18n="nav_mansoura"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
                                     Mansoura Branch</a>
                             </li>
-                            <li><a href="al-munawwara.html"
+                            <li><a href="al-munawwara.html" data-i18n="nav_munawwara"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Al
                                     Munawwara Branch</a>
                             </li>
-                            <li><a href="ar-rabia.html"
+                            <li><a href="ar-rabia.html" data-i18n="nav_rabia"
                                     class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Ar
                                     Rabia Branch</a>
                             </li>
@@ -132,7 +131,7 @@
                 </div>
 
                 <!-- Search Button -->
-                <button onclick="toggleSearch()"
+                <button onclick="toggleSearch()" data-i18n="nav_search"
                     class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                     Search
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -149,7 +148,7 @@
                     <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-1">
                     </div>
                     <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]"
-                        id="menu-text">MENU</span>
+                        id="menu-text" data-i18n="nav_menu">MENU</span>
                     <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-2">
                     </div>
                 </div>
@@ -236,23 +235,23 @@
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div class="flex flex-col items-start reveal-left">
-                    <h3 class="text-[#004b87] text-xl md:text-2xl font-semibold mb-2 uppercase tracking-widest">Our
+                    <h3 class="text-[#004b87] text-xl md:text-2xl font-semibold mb-2 uppercase tracking-widest" data-i18n="branch_flagship">Our
                         Flagship Campus</h3>
-                    <h2
+                    <h2 data-i18n="mansoura_title"
                         class="font-['Merriweather',_serif] text-[#004b87] text-4xl md:text-5xl lg:text-[58px] font-bold leading-[1.1] mb-8">
                         Al-Mansoura Branch</h2>
-                    <p class="text-gray-700 text-lg md:text-[18px] leading-relaxed mb-6 max-w-lg">Success International
+                    <p class="text-gray-700 text-lg md:text-[18px] leading-relaxed mb-6 max-w-lg" data-i18n="mansoura_detailed_desc">Success International
                         Schools has a well-appointed campus in the Al Mansoura District in Riyadh, Saudi Arabia. Our
                         flagship branch has been serving the community since 2014 with a world-class education for boys
                         and girls from Pre-K through Grade 12.</p>
-                    <p class="text-gray-600 text-[15px] leading-relaxed mb-10 max-w-lg">The Al-Mansoura campus is the
+                    <p class="text-gray-600 text-[15px] leading-relaxed mb-10 max-w-lg" data-i18n="mansoura_history">The Al-Mansoura campus is the
                         birthplace of the SIS vision — offering a curriculum rooted in the American and British
                         frameworks with technology-enabled, holistic learning environments.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="../admission.html"
+                        <a href="../admission.html" data-i18n="apply_admission"
                             class="bg-[#a6192e] text-white font-semibold text-[15px] px-8 py-3.5 rounded hover:bg-[#851425] transition-colors shadow-md transform hover:-translate-y-1">Apply
                             for Admission</a>
-                        <a href="../contact-us.html"
+                        <a href="../contact-us.html" data-i18n="get_directions"
                             class="border-2 border-[#004b87] text-[#004b87] font-semibold text-[15px] px-8 py-3 rounded hover:bg-[#004b87] hover:text-white transition-colors">Get
                             Directions</a>
                     </div>
@@ -268,9 +267,9 @@
                     <!-- Stat Badge -->
                     <div
                         class="absolute bottom-0 -left-6 md:-left-12 w-44 h-44 md:w-56 md:h-56 bg-[#a6192e] rounded-full flex flex-col items-center justify-center text-white text-center shadow-2xl p-4 z-20 border-4 border-white">
-                        <span class="text-base font-medium leading-tight">Established</span>
+                        <span class="text-base font-medium leading-tight" data-i18n="established">Established</span>
                         <span class="text-4xl md:text-5xl font-bold my-1">2014</span>
-                        <span class="text-base font-medium leading-tight">Flagship</span>
+                        <span class="text-base font-medium leading-tight" data-i18n="branch_flagship">Flagship</span>
                     </div>
                 </div>
             </div>
@@ -288,25 +287,25 @@
                     <div class="w-20 h-20 bg-[#f7b926] rounded-full flex items-center justify-center mx-auto mb-4"><span
                             class="material-symbols-outlined text-3xl text-[#0c2b53]">school</span></div>
                     <p class="text-3xl md:text-4xl font-patrick wiggle text-white">2014</p>
-                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest">Founded</p>
+                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest" data-i18n="founded">Founded</p>
                 </div>
                 <div class="text-center reveal">
                     <div class="w-20 h-20 bg-[#a6192e] rounded-full flex items-center justify-center mx-auto mb-4"><span
                             class="material-symbols-outlined text-3xl text-white">groups</span></div>
                     <p class="text-3xl md:text-4xl font-patrick wiggle text-white">1300+</p>
-                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest">Students</p>
+                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest" data-i18n="students">Students</p>
                 </div>
                 <div class="text-center reveal">
                     <div class="w-20 h-20 bg-[#004b87] rounded-full flex items-center justify-center mx-auto mb-4"><span
                             class="material-symbols-outlined text-3xl text-white">diversity_3</span></div>
                     <p class="text-3xl md:text-4xl font-patrick wiggle text-white">25+</p>
-                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest">Nationalities</p>
+                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest" data-i18n="nationalities">Nationalities</p>
                 </div>
                 <div class="text-center reveal">
                     <div class="w-20 h-20 bg-[#068378] rounded-full flex items-center justify-center mx-auto mb-4"><span
                             class="material-symbols-outlined text-3xl text-white">menu_book</span></div>
                     <p class="text-3xl md:text-4xl font-patrick wiggle text-white">Pre-K</p>
-                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest">to Grade 12</p>
+                    <p class="text-white/60 text-sm mt-1 uppercase tracking-widest" data-i18n="prek_to_grade12">to Grade 12</p>
                 </div>
             </div>
         </div>
@@ -318,9 +317,9 @@
             class="logo-watermark w-[700px] -right-20 top-[15%] opacity-[0.03] rotate-12" alt="">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="text-center mb-14 reveal">
-                <p class="text-[#a6192e] font-semibold uppercase tracking-widest text-sm mb-2">World-Class Facilities
+                <p class="text-[#a6192e] font-semibold uppercase tracking-widest text-sm mb-2" data-i18n="world_class_facilities">World-Class Facilities
                 </p>
-                <h2 class="font-['Merriweather',_serif] text-4xl md:text-5xl font-bold text-[#33424d]">Campus Highlights
+                <h2 class="font-['Merriweather',_serif] text-4xl md:text-5xl font-bold text-[#33424d]" data-i18n="campus_highlights">Campus Highlights
                 </h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -330,9 +329,9 @@
                         class="w-14 h-14 bg-[#a6192e]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-2xl text-[#a6192e]">science</span>
                     </div>
-                    <h3 class="font-['Merriweather',_serif] text-xl font-bold text-[#0c2b53] mb-3">Science & Technology
+                    <h3 class="font-['Merriweather',_serif] text-xl font-bold text-[#0c2b53] mb-3" data-i18n="academic_science">Science & Technology
                     </h3>
-                    <p class="text-gray-600 text-[14px] leading-relaxed">Fully equipped science labs, computer labs, and
+                    <p class="text-gray-600 text-[14px] leading-relaxed" data-i18n="science_desc">Fully equipped science labs, computer labs, and
                         a dedicated Robotics &amp; Design Technology room. Students have access to cutting-edge tools to
                         develop 21st-century skills from an early age.</p>
                 </div>
@@ -342,9 +341,9 @@
                         class="w-14 h-14 bg-[#004b87]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-2xl text-[#004b87]">sports_soccer</span>
                     </div>
-                    <h3 class="font-['Merriweather',_serif] text-xl font-bold text-[#0c2b53] mb-3">Sports & Recreation
+                    <h3 class="font-['Merriweather',_serif] text-xl font-bold text-[#0c2b53] mb-3" data-i18n="academic_sports">Sports & Recreation
                     </h3>
-                    <p class="text-gray-600 text-[14px] leading-relaxed">Four multi-purpose sports courts, two swimming
+                    <p class="text-gray-600 text-[14px] leading-relaxed" data-i18n="sports_desc">Four multi-purpose sports courts, two swimming
                         pools, a fully grassed outdoor playing field, basketball, volleyball and tennis courts, and a
                         gymnasium — all designed to build champions.</p>
                 </div>
@@ -354,8 +353,8 @@
                         class="w-14 h-14 bg-[#1E842D]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-2xl text-[#1E842D]">palette</span>
                     </div>
-                    <h3 class="font-['Merriweather',_serif] text-xl font-bold text-[#0c2b53] mb-3">Arts & Culture</h3>
-                    <p class="text-gray-600 text-[14px] leading-relaxed">Specialist rooms for music, art, dance, and
+                    <h3 class="font-['Merriweather',_serif] text-xl font-bold text-[#0c2b53] mb-3" data-i18n="academic_arts">Arts & Culture</h3>
+                    <p class="text-gray-600 text-[14px] leading-relaxed" data-i18n="arts_desc">Specialist rooms for music, art, dance, and
                         drama. An auditorium for performances and a library for independent learning ensure every
                         student's creative potential is nurtured.</p>
                 </div>
@@ -368,7 +367,7 @@
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal-left">
-                    <h2 class="font-['Merriweather',_serif] text-3xl md:text-4xl font-bold text-[#0c2b53] mb-8">Find Us
+                    <h2 class="font-['Merriweather',_serif] text-3xl md:text-4xl font-bold text-[#0c2b53] mb-8" data-i18n="find_us">Find Us
                     </h2>
                     <div class="space-y-5">
                         <div class="flex items-start gap-5 p-6 bg-[#f9f7f1] rounded-2xl border-l-4 border-[#a6192e]">
@@ -376,7 +375,7 @@
                                 <span class="material-symbols-outlined text-white text-xl">pin_drop</span>
                             </div>
                             <div>
-                                <p class="font-bold text-[#0c2b53] text-sm uppercase tracking-widest mb-1">Address</p>
+                                <p class="font-bold text-[#0c2b53] text-sm uppercase tracking-widest mb-1" data-i18n="address">Address</p>
                                 <p class="text-gray-700">4126, 7401 Aqadiyr Street, Al Mansourah, Riyadh 12684, Saudi
                                     Arabia</p>
                             </div>
@@ -386,7 +385,7 @@
                                 <span class="material-symbols-outlined text-white text-xl">call</span>
                             </div>
                             <div>
-                                <p class="font-bold text-[#0c2b53] text-sm uppercase tracking-widest mb-1">Phone</p>
+                                <p class="font-bold text-[#0c2b53] text-sm uppercase tracking-widest mb-1" data-i18n="phone">Phone</p>
                                 <p class="text-gray-700">+966 55 925 5159</p>
                             </div>
                         </div>
@@ -395,7 +394,7 @@
                                 <span class="material-symbols-outlined text-white text-xl">mail</span>
                             </div>
                             <div>
-                                <p class="font-bold text-[#0c2b53] text-sm uppercase tracking-widest mb-1">Email</p>
+                                <p class="font-bold text-[#0c2b53] text-sm uppercase tracking-widest mb-1" data-i18n="email">Email</p>
                                 <p class="text-gray-700">hr@sischs.com</p>
                             </div>
                         </div>
@@ -420,13 +419,13 @@
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div class="reveal">
-                    <h2 class="font-['Merriweather',_serif] text-4xl md:text-5xl font-bold text-white leading-[1.15]">
+                    <h2 class="font-['Merriweather',_serif] text-4xl md:text-5xl font-bold text-white leading-[1.15]" data-i18n="begin_journey_mansoura">
                         Begin Your Journey at Al-Mansoura</h2>
                 </div>
                 <div class="flex flex-col items-start lg:pl-10 reveal">
-                    <p class="text-white text-[16px] leading-[1.6] mb-8 max-w-[500px]">Apply today and secure your
+                    <p class="text-white text-[16px] leading-[1.6] mb-8 max-w-[500px]" data-i18n="mansoura_cta_desc">Apply today and secure your
                         child's place at our flagship campus — where generations of success have been built since 2014.
-                    </p><a href="../admission.html"
+                    </p><a href="../admission.html" data-i18n="footer_apply"
                         class="inline-block border-[1.5px] border-white text-white font-bold text-[15px] px-10 py-3.5 hover:bg-white hover:text-[#B6996D] transition-colors duration-300">Apply
                         Now</a>
                 </div>
@@ -438,7 +437,7 @@
     <div id="searchOverlay"
         class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
         <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
-            <input type="text" placeholder="Search the website..."
+            <input type="text" placeholder="Search the website..." data-i18n="search_placeholder"
                 class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
             <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
                 <svg class="w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -451,7 +450,7 @@
         </div>
         <button onclick="toggleSearch()"
             class="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-[#cc2128] transition-colors flex items-center gap-2">
-            <span class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1">Close</span>
+            <span class="text-sm font-bold uppercase tracking-widest hidden md:block mt-1" data-i18n="search_close">Close</span>
             <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 6L6 18M6 6l12 12"></path>
             </svg>
@@ -468,29 +467,29 @@
 
         <!-- Menu Links -->
         <div class="flex flex-col gap-4 md:gap-6 text-center relative z-10 w-full px-6">
-            <a href="../index.html"
+            <a href="../index.html" data-i18n="nav_home"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Home</a>
-            <a href="../about-us.html"
+            <a href="../about-us.html" data-i18n="nav_about"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">About
                 Us</a>
-            <a href="../sections/kg.html"
+            <a href="../sections/kg.html" data-i18n="nav_kg"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">KG
                 Section</a>
-            <a href="../sections/primary.html"
+            <a href="../sections/primary.html" data-i18n="nav_primary"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Primary
                 Section</a>
-            <a href="../sections/secondary.html"
+            <a href="../sections/secondary.html" data-i18n="nav_secondary"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Secondary
                 Section</a>
-            <a href="../admission.html"
+            <a href="../admission.html" data-i18n="nav_admissions"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Admissions</a>
-            <a href="../gallery.html"
+            <a href="../gallery.html" data-i18n="nav_gallery"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Gallery</a>
-            <a href="../careers.html"
+            <a href="../careers.html" data-i18n="nav_careers"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Careers</a>
-            <a href="../policies.html"
+            <a href="../policies.html" data-i18n="nav_policies"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Policies</a>
-            <a href="../contact-us.html"
+            <a href="../contact-us.html" data-i18n="nav_contact"
                 class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Contact
                 Us</a>
         </div>
@@ -534,7 +533,7 @@
                     </div>
                 </div>
                 <div class="hidden md:block h-12 w-[1px] bg-white/20 mx-4"></div>
-                <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left">
+                <p class="text-white/70 text-sm md:text-base max-w-md text-center md:text-left" data-i18n="footer_desc">
                     Inspiring global thinkers and engaged leaders for over 10 years, fostering excellence in education
                     across our branches.
                 </p>
@@ -545,12 +544,12 @@
 
                 <!-- Column 1: Admissions -->
                 <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Admissions</h4>
+                    <h4 class="text-2xl font-bold mb-6 text-white" data-i18n="nav_admissions">Admissions</h4>
                     <p class="text-white/80 text-sm leading-relaxed mb-8 max-w-xs">
                         Join our community of learners. Click below to start your journey with Success International
                         School.
                     </p>
-                    <a href="../admission.html"
+                    <a href="../admission.html" data-i18n="footer_apply"
                         class="inline-block bg-[#a6192e] text-white font-bold py-4 px-10 rounded hover:bg-[#8d1527] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[#a6192e]/40 mb-10 w-full md:w-auto text-center">
                         Apply Now
                     </a>
@@ -558,40 +557,37 @@
 
                 <!-- Column 2: Get In Touch -->
                 <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Get In Touch</h4>
+                    <h4 class="text-2xl font-bold mb-6 text-white" data-i18n="footer_get_in_touch">Get In Touch</h4>
                     <p class="text-[15px] font-bold text-white mb-2 uppercase">Success International School</p>
                     <p class="text-white/70 text-sm mb-6">+966 12 213 1900<br>info@success.edu.sa</p>
                 </div>
 
                 <!-- Column 3: Quick Links -->
                 <div class="flex flex-col items-start px-12 md:px-0">
-                    <h4 class="text-2xl font-bold mb-6 text-white">Quick Links</h4>
+                    <h4 class="text-2xl font-bold mb-6 text-white" data-i18n="footer_quick_links">Quick Links</h4>
                     <ul class="flex flex-col gap-y-3">
-                        <li><a href="../about-us.html" class="text-white/70 hover:text-white transition-all">About
+                        <li><a href="../about-us.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_about">About
                                 Us</a></li>
-                        <li><a href="../sections/kg.html" class="text-white/70 hover:text-white transition-all">KG
-                                Section</a></li>
-                        <li><a href="../sections/primary.html"
-                                class="text-white/70 hover:text-white transition-all">Primary Section</a></li>
-                        <li><a href="../sections/secondary.html"
-                                class="text-white/70 hover:text-white transition-all">Secondary Section</a></li>
-                        <li><a href="../admission.html"
+                        <li><a href="../sections/kg.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_kg">KG Section</a></li>
+                        <li><a href="../sections/primary.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_primary">Primary Section</a></li>
+                        <li><a href="../sections/secondary.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_secondary">Secondary Section</a></li>
+                        <li><a href="../admission.html" data-i18n="nav_admissions"
                                 class="text-white/70 hover:text-white transition-all">Admissions</a></li>
-                        <li><a href="../gallery.html" class="text-white/70 hover:text-white transition-all">Gallery</a>
+                        <li><a href="../gallery.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_gallery">Gallery</a>
                         </li>
-                        <li><a href="../careers.html" class="text-white/70 hover:text-white transition-all">Careers</a>
+                        <li><a href="../careers.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_careers">Careers</a>
                         </li>
-                        <li><a href="../policies.html"
+                        <li><a href="../policies.html" data-i18n="nav_policies"
                                 class="text-white/70 hover:text-white transition-all">Policies</a>
                         </li>
-                        <li><a href="../contact-us.html" class="text-white/70 hover:text-white transition-all">Contact
+                        <li><a href="../contact-us.html" class="text-white/70 hover:text-white transition-all" data-i18n="nav_contact">Contact
                                 Us</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Copyright Bar -->
-            <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center">
+            <div class="mt-20 pt-8 border-t border-white/10 text-white/40 text-[13px] text-center" data-i18n="footer_rights">
                 &copy; 2026 Success International School. All rights reserved.
             </div>
         </div>
@@ -603,9 +599,17 @@
             class="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
             <span class="material-symbols-outlined text-xl md:text-2xl">edit_note</span>
         </div>
-        <span class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase">Enquire Now</span>
+        <span class="font-bold tracking-wider text-sm md:text-base pr-2 uppercase" data-i18n="enquire_now">Enquire Now</span>
     </a>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>

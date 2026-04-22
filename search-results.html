@@ -16,6 +16,7 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/school_logo_color.svg">
+    <script src="assets/js/i18n.js"></script>
 </head>
 
 <body class="antialiased bg-[#f9f7f1]">
@@ -36,7 +37,32 @@
             </a>
 
             <div class="flex items-center gap-6 lg:gap-10">
-                <button onclick="toggleSearch()"
+                <!-- Translate Dropdown -->
+                <div class="hidden md:flex relative group h-full items-center">
+                    <button data-i18n="nav_translate"
+                        class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
+                        Translate
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute top-full right-0 mt-4 w-40 bg-white border-t-4 border-[#cc2128] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 before:absolute before:top-[-16px] before:left-0 before:w-full before:h-[16px]">
+                        <ul class="flex flex-col py-2">
+                            <li><a href="javascript:void(0)" onclick="setLanguage('ar')" data-i18n="nav_arabic"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">Arabic</a>
+                            </li>
+                            <li><a href="javascript:void(0)" onclick="setLanguage('en')" data-i18n="nav_english"
+                                    class="nav-dropdown-item block px-5 py-2.5 text-sm font-medium text-gray-800 hover:text-white transition-colors">English</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button onclick="toggleSearch()" data-i18n="nav_search"
                     class="flex items-center gap-1.5 text-white font-semibold text-[14px] hover:text-gray-300 transition-colors">
                     Search
                     <span class="material-symbols-outlined text-[20px]">search</span>
@@ -44,7 +70,7 @@
 
                 <div id="menuBtn" class="flex flex-col justify-between items-stretch cursor-pointer group h-[22px] ml-2 w-max relative z-[60]">
                     <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-1"></div>
-                    <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]" id="menu-text">MENU</span>
+                    <span class="text-white text-[12px] font-bold tracking-[0.15em] text-center leading-none px-[2px]" id="menu-text" data-i18n="nav_menu">MENU</span>
                     <div class="h-[2px] w-full bg-white transition-all duration-300 origin-center" id="menu-line-2"></div>
                 </div>
             </div>
@@ -54,7 +80,7 @@
     <!-- Results Header -->
     <section class="pt-40 pb-16 bg-[#0c2b53] text-white">
         <div class="max-w-[1200px] mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Search Results</h1>
+            <h1 data-i18n="search_results_title" class="text-4xl md:text-6xl font-bold mb-4">Search Results</h1>
             <p class="text-xl text-white/70" id="search-query-text">Showing results for "..."</p>
         </div>
     </section>
@@ -66,9 +92,9 @@
                 <!-- Results will be injected here -->
                 <div class="flex flex-col items-center justify-center py-20 text-center">
                     <span class="material-symbols-outlined text-8xl text-gray-200 mb-6">search_off</span>
-                    <h2 class="text-3xl font-bold text-[#0c2b53] mb-4">No results found</h2>
-                    <p class="text-gray-500 max-w-md mx-auto mb-8">We couldn't find anything matching your search. Try checking your spelling or using different keywords.</p>
-                    <button onclick="toggleSearch()" class="bg-[#a6192e] text-white px-8 py-3 rounded-full font-bold hover:bg-[#851425] transition-all">Try Another Search</button>
+                    <h2 data-i18n="search_no_results" class="text-3xl font-bold text-[#0c2b53] mb-4">No results found</h2>
+                    <p data-i18n="search_no_results_desc" class="text-gray-500 max-w-md mx-auto mb-8">We couldn't find anything matching your search. Try checking your spelling or using different keywords.</p>
+                    <button data-i18n="search_try_another" onclick="toggleSearch()" class="bg-[#a6192e] text-white px-8 py-3 rounded-full font-bold hover:bg-[#851425] transition-all">Try Another Search</button>
                 </div>
             </div>
         </div>
@@ -77,14 +103,14 @@
     <!-- Footer -->
     <footer class="bg-[#0c2b53] text-white py-12">
         <div class="max-w-[1200px] mx-auto px-6 text-center">
-            <p class="text-white/40">&copy; 2026 Success International School. All rights reserved.</p>
+            <p data-i18n="footer_rights" class="text-white/40">&copy; 2026 Success International School. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Overlays -->
     <div id="searchOverlay" class="fixed top-0 left-0 w-full h-[250px] md:h-[300px] bg-white z-[70] transform -translate-y-full transition-transform duration-500 flex flex-col justify-center items-center shadow-2xl">
         <div class="w-full max-w-4xl px-8 flex items-center border-b-2 border-[#0c2b53] pb-2 relative group">
-            <input type="text" placeholder="Search the website..." class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
+            <input type="text" placeholder="Search the website..." data-i18n="search_placeholder" class="w-full text-2xl md:text-4xl font-light outline-none bg-transparent text-[#0c2b53] placeholder-gray-400">
             <button class="text-[#0c2b53] group-hover:text-[#cc2128] transition-colors p-2 absolute right-0">
                 <span class="material-symbols-outlined text-[32px]">search</span>
             </button>
@@ -96,13 +122,13 @@
 
     <div id="fullMenu" class="fixed inset-0 bg-[#0c2b53] z-[50] flex items-center justify-center transition-all duration-500 opacity-0 invisible translate-x-full">
         <div class="flex flex-col gap-6 text-center text-white text-3xl font-bold">
-            <a href="index.html" class="hover:text-[#f7b926] transition-colors">Home</a>
-            <a href="about-us.html" class="hover:text-[#f7b926] transition-colors">About Us</a>
-            <a href="sections/kg.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">KG Section</a>
-            <a href="sections/primary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Primary Section</a>
-            <a href="sections/secondary.html" class="text-2xl md:text-4xl font-bold text-white hover:text-[#f7b926] transition-colors translate-y-10 opacity-0 menu-item inline-block">Secondary Section</a>
-            <a href="admission.html" class="hover:text-[#f7b926] transition-colors">Admissions</a>
-            <a href="contact-us.html" class="hover:text-[#f7b926] transition-colors">Contact Us</a>
+            <a href="index.html" data-i18n="nav_home" class="hover:text-[#f7b926] transition-colors">Home</a>
+            <a href="about-us.html" data-i18n="nav_about" class="hover:text-[#f7b926] transition-colors">About Us</a>
+            <a href="sections/kg.html" data-i18n="nav_kg" class="hover:text-[#f7b926] transition-colors">KG Section</a>
+            <a href="sections/primary.html" data-i18n="nav_primary" class="hover:text-[#f7b926] transition-colors">Primary Section</a>
+            <a href="sections/secondary.html" data-i18n="nav_secondary" class="hover:text-[#f7b926] transition-colors">Secondary Section</a>
+            <a href="admission.html" data-i18n="nav_admissions" class="hover:text-[#f7b926] transition-colors">Admissions</a>
+            <a href="contact-us.html" data-i18n="nav_contact" class="hover:text-[#f7b926] transition-colors">Contact Us</a>
         </div>
     </div>
 
@@ -114,89 +140,163 @@
             const resultsContainer = document.getElementById('results-container');
             const queryDisplay = document.getElementById('search-query-text');
 
+            // Get current language and translations
+            const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+            const t = translations[currentLang];
+
             if (!query || query.trim() === "") {
-                queryDisplay.textContent = "Please enter a search term.";
+                queryDisplay.textContent = t.search_enter_term;
                 return;
             }
 
-            queryDisplay.textContent = `Showing results for "${query}"`;
+            queryDisplay.textContent = `${t.search_showing_results} "${query}"`;
 
-            // Comprehensive Search Index - Heavily Expanded
-            const searchIndex = [
-                {
-                    title: "Home - Success International School",
-                    url: "index.html",
-                    desc: "Inspiring global thinkers and engaged leaders. Providing quality K-12 education from Primary to Secondary school levels.",
-                    keywords: "home sis welcome school education international vision excellence leadership primary secondary high school elementary foundation k-12 k12 kindergarten"
-                },
-                {
-                    title: "About Us - Our Legacy & Values",
-                    url: "about-us.html",
-                    desc: "Founded in 2014, SIS is committed to developing minds, bodies, and characters. Accredited British curriculum school.",
-                    keywords: "about history legacy vision mission values responsibility compassion humility foundation 2014 message principal accreditation moe ministry of education cambridge british curriculum igcse"
-                },
-                {
-                    title: "Admissions - Registration, Fees & Grades",
-                    url: "admission.html",
-                    desc: "Join our community. Information on LKG, UKG, and Grades 1-12. Details on entrance tests, assessments, and school fees.",
-                    keywords: "admission apply join registration enroll requirements fees tuition cost money price academic scholarship application lkg ukg kg kindergarten nursery pre-school entrance test placement assessment interview exam test document passport id"
-                },
-                {
-                    title: "Careers - Faculty & Staff Opportunities",
-                    url: "careers.html",
-                    desc: "Explore job opportunities. We are hiring passionate teachers for Primary, Secondary, and specialized subjects.",
-                    keywords: "careers jobs work faculty teacher staff hiring vacancies employment application teaching positions vacancy secondary teacher primary teacher"
-                },
-                {
-                    title: "Contact Us - Visit Our Campuses",
-                    url: "contact-us.html",
-                    desc: "Find us in Riyadh. Contact details for all branches, maps, and school office hours.",
-                    keywords: "contact location address phone email reach support map office number riyadh branches campus call visit"
-                },
-                {
-                    title: "Gallery - Campus Events & Life",
-                    url: "gallery.html",
-                    desc: "Photos of graduation, sports day, and student achievements. Experience school life at SIS.",
-                    keywords: "gallery photos campus events students pictures activities sports school life graduation assembly celebration competition"
-                },
-                {
-                    title: "Al Mansoura Branch",
-                    url: "branches/al-mansoura.html",
-                    desc: "Our Al Mansoura campus offering Primary and Secondary education in a state-of-the-art facility.",
-                    keywords: "mansoura branch location campus riyadh schools primary secondary"
-                },
-                {
-                    title: "Al Munawwara Branch",
-                    url: "branches/al-munawwara.html",
-                    desc: "Dedicated to excellence in education. Explore the Al Munawwara campus and programs.",
-                    keywords: "munawwara branch location campus riyadh schools primary secondary"
-                },
-                {
-                    title: "Ar Rabia Branch",
-                    url: "branches/ar-rabia.html",
-                    desc: "Providing a nurturing environment for students in the Ar Rabia community.",
-                    keywords: "rabia branch location campus riyadh schools primary secondary"
-                },
-                {
-                    title: "School Policies & Uniform Guidelines",
-                    url: "policies.html",
-                    desc: "Essential information on student conduct, uniform, attendance, and safety protocols.",
-                    keywords: "policies rules guidelines procedures safety conduct behavior uniform attendance absence late dress code transport bus cafeteria"
-                },
-                {
-                    title: "IMS Policy - Digital Security",
-                    url: "ims-policy.html",
-                    desc: "Information Management System and data privacy policies for students and parents.",
-                    keywords: "ims policy data information security privacy technology digital portal login"
-                }
-            ];
+            // Localized Search Index
+            const searchIndex = {
+                'en': [
+                    {
+                        title: "Home - Success International School",
+                        url: "index.html",
+                        desc: "Inspiring global thinkers and engaged leaders. Providing quality K-12 education from Primary to Secondary school levels.",
+                        keywords: "home sis welcome school education international vision excellence leadership primary secondary high school elementary foundation k-12 k12 kindergarten"
+                    },
+                    {
+                        title: "About Us - Our Legacy & Values",
+                        url: "about-us.html",
+                        desc: "Founded in 2014, SIS is committed to developing minds, bodies, and characters. Accredited British curriculum school.",
+                        keywords: "about history legacy vision mission values responsibility compassion humility foundation 2014 message principal accreditation moe ministry of education cambridge british curriculum igcse"
+                    },
+                    {
+                        title: "Admissions - Registration, Fees & Grades",
+                        url: "admission.html",
+                        desc: "Join our community. Information on LKG, UKG, and Grades 1-12. Details on entrance tests, assessments, and school fees.",
+                        keywords: "admission apply join registration enroll requirements fees tuition cost money price academic scholarship application lkg ukg kg kindergarten nursery pre-school entrance test placement assessment interview exam test document passport id"
+                    },
+                    {
+                        title: "Careers - Faculty & Staff Opportunities",
+                        url: "careers.html",
+                        desc: "Explore job opportunities. We are hiring passionate teachers for Primary, Secondary, and specialized subjects.",
+                        keywords: "careers jobs work faculty teacher staff hiring vacancies employment application teaching positions vacancy secondary teacher primary teacher"
+                    },
+                    {
+                        title: "Contact Us - Visit Our Campuses",
+                        url: "contact-us.html",
+                        desc: "Find us in Riyadh. Contact details for all branches, maps, and school office hours.",
+                        keywords: "contact location address phone email reach support map office number riyadh branches campus call visit"
+                    },
+                    {
+                        title: "Gallery - Campus Events & Life",
+                        url: "gallery.html",
+                        desc: "Photos of graduation, sports day, and student achievements. Experience school life at SIS.",
+                        keywords: "gallery photos campus events students pictures activities sports school life graduation assembly celebration competition"
+                    },
+                    {
+                        title: "Al Mansoura Branch",
+                        url: "branches/al-mansoura.html",
+                        desc: "Our Al Mansoura campus offering Primary and Secondary education in a state-of-the-art facility.",
+                        keywords: "mansoura branch location campus riyadh schools primary secondary"
+                    },
+                    {
+                        title: "Al Munawwara Branch",
+                        url: "branches/al-munawwara.html",
+                        desc: "Dedicated to excellence in education. Explore the Al Munawwara campus and programs.",
+                        keywords: "munawwara branch location campus riyadh schools primary secondary"
+                    },
+                    {
+                        title: "Ar Rabia Branch",
+                        url: "branches/ar-rabia.html",
+                        desc: "Providing a nurturing environment for students in the Ar Rabia community.",
+                        keywords: "rabia branch location campus riyadh schools primary secondary"
+                    },
+                    {
+                        title: "School Policies & Uniform Guidelines",
+                        url: "policies.html",
+                        desc: "Essential information on student conduct, uniform, attendance, and safety protocols.",
+                        keywords: "policies rules guidelines procedures safety conduct behavior uniform attendance absence late dress code transport bus cafeteria"
+                    },
+                    {
+                        title: "IMS Policy - Digital Security",
+                        url: "ims-policy.html",
+                        desc: "Information Management System and data privacy policies for students and parents.",
+                        keywords: "ims policy data information security privacy technology digital portal login"
+                    }
+                ],
+                'ar': [
+                    {
+                        title: "الرئيسية - مدرسة النجاح الدولية",
+                        url: "index.html",
+                        desc: "إلهام المفكرين العالميين والقادة المتفاعلين. تقديم تعليم عالي الجودة من المرحلة الابتدائية إلى الثانوية.",
+                        keywords: "الرئيسية مدرسة تعليم دولي رؤية تميز قيادة ابتدائي ثانوي مدرسة عليا مدرسة ابتدائية مؤسسة روضة"
+                    },
+                    {
+                        title: "عن المدرسة - إرثنا وقيمنا",
+                        url: "about-us.html",
+                        desc: "تأسست في عام 2014، تلتزم مدرسة النجاح الدولية بتطوير العقول والأجساد والشخصيات. مدرسة معتمدة للمنهج البريطاني.",
+                        keywords: "عن المدرسة تاريخ إرث رؤية رسالة قيم مسؤولية تعاطف تواضع مؤسسة 2014 رسالة المدير اعتماد وزارة التعليم كامبريدج المنهج البريطاني"
+                    },
+                    {
+                        title: "القبول - التسجيل والرسوم والمراحل",
+                        url: "admission.html",
+                        desc: "انضم إلى مجتمعنا. معلومات عن الروضة والمراحل من 1-12. تفاصيل عن اختبارات القبول والتقييمات والرسوم المدرسية.",
+                        keywords: "القبول تقديم انضمام تسجيل متطلبات رسوم تكلفة مال سعر منحة دراسية طلب روضة حضانة اختبار قبول تقييم مقابلة امتحان وثيقة جواز سفر"
+                    },
+                    {
+                        title: "الوظائف - فرص الهيئة التدريسية والموظفين",
+                        url: "careers.html",
+                        desc: "استكشف فرص العمل. نحن نوظف معلمين شغوفين للمراحل الابتدائية والثانوية والمواد المتخصصة.",
+                        keywords: "وظائف عمل هيئة تدريس معلم موظفين توظيف شاغر تقديم وظيفة معلم ثانوي معلم ابتدائي"
+                    },
+                    {
+                        title: "اتصل بنا - قم بزيارة فروعنا",
+                        url: "contact-us.html",
+                        desc: "تجدنا في الرياض. تفاصيل الاتصال لجميع الفروع والخرائط وساعات عمل المكتب المدرسي.",
+                        keywords: "اتصل موقع عنوان هاتف بريد إلكتروني دعم خريطة مكتب رقم الرياض فروع مجمع زيارة"
+                    },
+                    {
+                        title: "المعرض - أحداث وحياة المجمع",
+                        url: "gallery.html",
+                        desc: "صور التخرج واليوم الرياضي وإنجازات الطلاب. اختبر الحياة المدرسية في مدرسة النجاح الدولية.",
+                        keywords: "معرض صور مجمع أحداث طلاب صور أنشطة رياضة حياة مدرسية تخرج تجميع احتفال مسابقة"
+                    },
+                    {
+                        title: "فرع المنصورة",
+                        url: "branches/al-mansoura.html",
+                        desc: "فرع المنصورة يقدم التعليم الابتدائي والثانوي في منشأة حديثة.",
+                        keywords: "المنصورة فرع موقع مجمع الرياض مدارس ابتدائي ثانوي"
+                    },
+                    {
+                        title: "فرع المنورة",
+                        url: "branches/al-munawwara.html",
+                        desc: "مكرس للتميز في التعليم. استكشف فرع المنورة وبرامجه.",
+                        keywords: "المنورة فرع موقع مجمع الرياض مدارس ابتدائي ثانوي"
+                    },
+                    {
+                        title: "فرع الربيع",
+                        url: "branches/ar-rabia.html",
+                        desc: "توفير بيئة رعاية للطلاب في مجتمع الربيع.",
+                        keywords: "الربيع فرع موقع مجمع الرياض مدارس ابتدائي ثانوي"
+                    },
+                    {
+                        title: "سياسات المدرسة وإرشادات الزي المدرسي",
+                        url: "policies.html",
+                        desc: "معلومات أساسية عن سلوك الطلاب والزي المدرسي والحضور وبروتوكولات السلامة.",
+                        keywords: "سياسات قواعد إرشادات إجراءات سلامة سلوك زي مدرسي حضور غياب تأخر كود اللباس نقل حافلة كافتيريا"
+                    },
+                    {
+                        title: "سياسة IMS - الأمن الرقمي",
+                        url: "ims-policy.html",
+                        desc: "نظام إدارة المعلومات وسياسات خصوصية البيانات للطلاب وأولياء الأمور.",
+                        keywords: "سياسة ims بيانات معلومات أمن خصوصية تكنولوجيا بوابة رقمية تسجيل دخول"
+                    }
+                ]
+            };
 
             const searchTerm = query.toLowerCase().trim();
-            const searchWords = searchTerm.split(/\s+/); // Split by whitespace to search individual words
+            const searchWords = searchTerm.split(/\s+/);
+            const langIndex = searchIndex[currentLang] || searchIndex['en'];
 
-            const filteredResults = searchIndex.filter(item => {
+            const filteredResults = langIndex.filter(item => {
                 const searchableText = `${item.title} ${item.desc} ${item.keywords}`.toLowerCase();
-                // Match if the full phrase is found OR if all individual words are found
                 return searchableText.includes(searchTerm) || 
                        searchWords.every(word => searchableText.includes(word));
             });
@@ -214,13 +314,12 @@
                                 </div>
                             </div>
                             <a href="${result.url}" class="bg-[#0c2b53] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#a6192e] transition-all whitespace-nowrap">
-                                View Page
+                                ${t.search_view_page}
                             </a>
                         </div>
                     </div>
                 `).join('');
                 
-                // Trigger reveal animation for results
                 setTimeout(() => {
                     document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
                 }, 100);
@@ -230,8 +329,3 @@
 </body>
 
 </html>
-
-
-
-
-

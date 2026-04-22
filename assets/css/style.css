@@ -44,10 +44,6 @@ body {
     transform: translateX(-100%);
 }
 
-/* Wave flip in RTL */
-[dir="rtl"] .wave-container {
-    transform: scaleX(-1);
-}
 
 /* Search button flip */
 [dir="rtl"] .search-button svg {
@@ -229,6 +225,7 @@ body.overflow-hidden {
     overflow: hidden;
     line-height: 0;
     background: white;
+    direction: ltr !important; /* Force LTR to keep wave animation consistent in RTL */
 }
 
 .wave-svg {
@@ -237,6 +234,7 @@ body.overflow-hidden {
     width: 200%;
     height: 100px;
     will-change: transform;
+    left: 0; /* Ensure alignment to the physical left */
 }
 
 .wave-path-1 {
